@@ -1,7 +1,7 @@
 {
 	"version": 3,
 	"file": "style.min.css",
-	"sourceRoot": "/home/adam/dev/homepage",
+	"sourceRoot": "/home/adam/dev/hugo-homepage",
 	"sources": [
 		"assets/css/style.scss",
 		"assets/css/_variables.scss",
