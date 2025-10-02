@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html itemscope itemtype="http://schema.org/WebPage" lang="en">
+  <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+    <meta name="robots" content="noodp" />
+    <title>Algorytmy kryptograficzne | Laboratorium 1 - Adam Gregosiewicz</title><meta name="author" content="Adam Gregosiewicz">
+<meta name="author-link" content="https://gregosiewicz.github.io">
+<meta name="description" content="Stwórz funkcje do szyfrowania wiadomości szyfrem
+Cezara, afinicznym, podstawieniowym, Vigenère&rsquo;a. Przy pomocy funkcji z zadania 1 zaszyfruj tekst jawny The enemy knows the system. dla szyfru:
+Cezara z przesunięciem 12, afinicznego z parametrami a = 5 i b = 13, podstawieniowego dla permutacji 1 2 ABCDEFGHIJKLMNOPQRSTUVWXYZ QWERTYUIOPASDFGHJKLZXCVBNM szyfru Vigenère&rsquo;a z kluczem SHANNON Stwórz funkcje do deszyfrowania dla szyfrów z zadania 1 i sprawdź ich poprawność dla szyfrogramów uzyskanych w zadaniu zadaniu 2." /><meta itemprop="name" content="Algorytmy kryptograficzne | Laboratorium 1">
+<meta itemprop="description" content="Stwórz funkcje do szyfrowania wiadomości szyfrem
+Cezara, afinicznym, podstawieniowym, Vigenère&rsquo;a. Przy pomocy funkcji z zadania 1 zaszyfruj tekst jawny The enemy knows the system. dla szyfru:
+Cezara z przesunięciem 12, afinicznego z parametrami a = 5 i b = 13, podstawieniowego dla permutacji 1 2 ABCDEFGHIJKLMNOPQRSTUVWXYZ QWERTYUIOPASDFGHJKLZXCVBNM szyfru Vigenère&rsquo;a z kluczem SHANNON Stwórz funkcje do deszyfrowania dla szyfrów z zadania 1 i sprawdź ich poprawność dla szyfrogramów uzyskanych w zadaniu zadaniu 2.">
+<meta itemprop="dateModified" content="2025-10-02T10:49:07+02:00" />
+<meta itemprop="wordCount" content="144"><meta itemprop="image" content="http://localhost:1313/logo.png" />
+<meta itemprop="keywords" content="" /><meta property="og:title" content="Algorytmy kryptograficzne | Laboratorium 1" />
+<meta property="og:description" content="Stwórz funkcje do szyfrowania wiadomości szyfrem
+Cezara, afinicznym, podstawieniowym, Vigenère&rsquo;a. Przy pomocy funkcji z zadania 1 zaszyfruj tekst jawny The enemy knows the system. dla szyfru:
+Cezara z przesunięciem 12, afinicznego z parametrami a = 5 i b = 13, podstawieniowego dla permutacji 1 2 ABCDEFGHIJKLMNOPQRSTUVWXYZ QWERTYUIOPASDFGHJKLZXCVBNM szyfru Vigenère&rsquo;a z kluczem SHANNON Stwórz funkcje do deszyfrowania dla szyfrów z zadania 1 i sprawdź ich poprawność dla szyfrogramów uzyskanych w zadaniu zadaniu 2." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://localhost:1313/teaching/25-26ak/cwiczenia/zadania-1/" /><meta property="og:image" content="http://localhost:1313/logo.png" /><meta property="article:section" content="teaching" />
+
+<meta property="article:modified_time" content="2025-10-02T10:49:07+02:00" />
+
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:image" content="http://localhost:1313/logo.png" /><meta name="twitter:title" content="Algorytmy kryptograficzne | Laboratorium 1"/>
+<meta name="twitter:description" content="Stwórz funkcje do szyfrowania wiadomości szyfrem
+Cezara, afinicznym, podstawieniowym, Vigenère&rsquo;a. Przy pomocy funkcji z zadania 1 zaszyfruj tekst jawny The enemy knows the system. dla szyfru:
+Cezara z przesunięciem 12, afinicznego z parametrami a = 5 i b = 13, podstawieniowego dla permutacji 1 2 ABCDEFGHIJKLMNOPQRSTUVWXYZ QWERTYUIOPASDFGHJKLZXCVBNM szyfru Vigenère&rsquo;a z kluczem SHANNON Stwórz funkcje do deszyfrowania dla szyfrów z zadania 1 i sprawdź ich poprawność dla szyfrogramów uzyskanych w zadaniu zadaniu 2."/>
+<meta name="twitter:site" content="@xxxx"/>
+<meta name="application-name" content="Adam Gregosiewicz">
+<meta name="apple-mobile-web-app-title" content="Adam Gregosiewicz"><meta name="theme-color" data-light="#f8f8f8" data-dark="#252627" content="#f8f8f8"><meta name="msapplication-TileColor" content="#2376b7"><link rel="icon" href="/logo_white_circle.svg"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#2376b7"><link rel="canonical" href="http://localhost:1313/teaching/25-26ak/cwiczenia/zadania-1/" /><link rel="prev" href="http://localhost:1313/teaching/24-25mdi_ns/" /><link rel="next" href="http://localhost:1313/teaching/25-26ak/" /><link rel="stylesheet" href="/css/style.min.css">
+
+
+<script type="application/ld+json">
+  {
+    "@context": "http://schema.org",
+    "@type": "BlogPosting",
+    "headline": "Algorytmy kryptograficzne | Laboratorium 1",
+    "inLanguage": "en",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "http:\/\/localhost:1313\/teaching\/25-26ak\/cwiczenia\/zadania-1\/"
+    },"image": ["http:\/\/localhost:1313\/images\/Apple-Devices-Preview.jpg"],"genre": "teaching","wordcount":  144 ,
+    "url": "http:\/\/localhost:1313\/teaching\/25-26ak\/cwiczenia\/zadania-1\/","dateModified": "2025-10-02T10:49:07+02:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
+      "@type": "Organization",
+      "name": "Adam Gregosiewicz","logo": {
+          "@type": "ImageObject",
+          "url": "http:\/\/localhost:1313\/images\/ag.jpg",
+          "width":  400 ,
+          "height":  400 
+        }},"author": {
+        "@type": "Person",
+        "name": "Adam Gregosiewicz"
+      },"description": ""
+  }
+  </script></head>
+  <body data-header-desktop="sticky" data-header-mobile="normal"><script>(window.localStorage?.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('auto' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'auto' === 'dark')) && document.body.setAttribute('data-theme', 'dark');</script><div class="wrapper"><header class="desktop animate__faster" id="header-desktop">
+  <div class="header-wrapper">
+    <div class="header-title">
+      <a href="/" title="Adam Gregosiewicz"><img
+    class="lazyload logo"
+    src="/svg/loading.min.svg"
+    data-src="/logo.svg"
+    data-srcset="/logo.svg, /logo.svg 1.5x, /logo.svg 2x"
+    data-sizes="auto"
+    alt="Adam Gregosiewicz"
+    title="Adam Gregosiewicz"/><span class="header-title-text">Adam Gregosiewicz</span></a><span class="header-subtitle"></span></div>
+    <nav>
+      <ul class="menu"><li class="menu-item">
+              <a
+                class="menu-link"
+                href="/"
+                
+                
+              >Home</a></li><li class="menu-item">
+              <a
+                class="menu-link"
+                href="/publications/"
+                
+                
+              >Publications</a></li><li class="menu-item">
+              <a
+                class="menu-link"
+                href="/talks/"
+                
+                
+              >Talks</a></li><li class="menu-item">
+              <a
+                class="menu-link"
+                href="/teaching/"
+                
+                
+              >Teaching</a></li><li class="menu-item delimiter"></li><li class="menu-item theme-switch" title="Switch Theme"><i data-svg-src="/switch.svg" aria-hidden="true"></i>
+        </li>
+      </ul>
+    </nav>
+  </div>
+</header><header class="mobile animate__faster" id="header-mobile">
+  <div class="header-container">
+    <div class="header-wrapper">
+      <div class="header-title">
+        <a href="/" title="Adam Gregosiewicz"><img
+    class="lazyload logo"
+    src="/svg/loading.min.svg"
+    data-src="/logo.svg"
+    data-srcset="/logo.svg, /logo.svg 1.5x, /logo.svg 2x"
+    data-sizes="auto"
+    alt="/logo.svg"
+    title="/logo.svg"/><span class="header-title-text">Adam Gregosiewicz</span></a><span class="header-subtitle"></span></div>
+      <div class="menu-toggle" id="menu-toggle-mobile">
+        <span></span><span></span><span></span>
+      </div>
+    </div>
+    <nav>
+      <ul class="menu" id="menu-mobile"><li
+              class="menu-item"
+            ><a
+                  class="menu-link"
+                  href="/"
+                  
+                  
+                >Home</a></li><li
+              class="menu-item"
+            ><a
+                  class="menu-link"
+                  href="/publications/"
+                  
+                  
+                >Publications</a></li><li
+              class="menu-item"
+            ><a
+                  class="menu-link"
+                  href="/talks/"
+                  
+                  
+                >Talks</a></li><li
+              class="menu-item"
+            ><a
+                  class="menu-link"
+                  href="/teaching/"
+                  
+                  
+                >Teaching</a></li><li class="menu-item theme-switch" title="Switch Theme"><i data-svg-src="/switch.svg" aria-hidden="true"></i>
+        </li></ul>
+    </nav>
+  </div>
+</header><main class="container" data-page-style="normal"><article class="page single special">
+    <div class="header"><h1 class="single-title animate__animated animate__pulse animate__faster">Algorytmy kryptograficzne | Laboratorium 1</h1></div><div
+      class="content"
+      id="content"
+      
+      
+    ><ol>
+<li>
+<p>Stwórz funkcje do szyfrowania wiadomości szyfrem</p>
+<ul>
+<li>Cezara,</li>
+<li>afinicznym,</li>
+<li>podstawieniowym,</li>
+<li>Vigenère&rsquo;a.</li>
+</ul>
+</li>
+<li>
+<p>Przy pomocy funkcji z zadania 1 zaszyfruj tekst jawny <code>The enemy knows the system.</code> dla szyfru:</p>
+<ul>
+<li>Cezara z przesunięciem <code>12</code>,</li>
+<li>afinicznego z parametrami <code>a = 5</code> i <code>b = 13</code>,</li>
+<li>podstawieniowego dla permutacji
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">ABCDEFGHIJKLMNOPQRSTUVWXYZ
+</span></span><span class="line"><span class="cl">QWERTYUIOPASDFGHJKLZXCVBNM
+</span></span></code></pre></td></tr></table>
+</div>
+</div></li>
+<li>szyfru Vigenère&rsquo;a z kluczem <code>SHANNON</code></li>
+</ul>
+</li>
+<li>
+<p>Stwórz funkcje do deszyfrowania dla szyfrów z zadania 1 i sprawdź
+ich poprawność dla szyfrogramów uzyskanych w zadaniu zadaniu 2.</p>
+</li>
+<li>
+<p>Odtwórz tekst jawny dla szyfrogramu
+<code>PXVTGHGERLXXTLAHKMWBLMTGVXTAXTWUNMPXVTGLXXIEXGMRMAXKXMATMGXXWLMHUXWHGX</code>,
+który powstał z wykorzystaniem szyfru Cezara z nieznanym
+przesunięciem.</p>
+</li>
+<li>
+<p>Odtwórz tekst jawny dla szyfrogramu
+<code>ORHCJGEFOCROUFDWJWUCVQFOCRCHQRAWJFEORFI</code>, który powstał z
+wykorzystaniem szyfru afinicznego z nieznanymi parametrami.</p>
+</li>
+<li>
+<p>Odszyfruj szyfrogram</p>
+</li>
+</ol>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">YJKAKZNYRMZKRFNYRTYFAYHNFFNYRTAEIMYRFMQQYHMRFQB
+</span></span><span class="line"><span class="cl">FNKRVMCEKRCFNMRVNMIMGNEDQCVMXMMSMRYJVMZEDQCTMML
+</span></span><span class="line"><span class="cl">FNMAKZNYRMGYRKGDXGMISYMRFLEGYFYERJEIYRGFKRZMXBF
+</span></span><span class="line"><span class="cl">DIRYRHEJJFNMLEVMIKFGFIKFMHYZAEAMRFGVMGNEDQCKGKG
+</span></span><span class="line"><span class="cl">LMZYMGJMMQHIMKFQBNDAXQMCFNYGRMVCKRHMIYGZMIFKYRQ
+</span></span><span class="line"><span class="cl">BGEAMFNYRHVNYZNZKRHYSMDGKROYMFB
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>który powstał z wykorzystaniem szyfru podstawieniowego z nieznanym
+alfabetem.</p>
+<ol start="7">
+<li>Odszyfruj szyfrogram</li>
+</ol>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">GYIOSYXATPWGJPTDGRVMELHUYTXMDXEOZTRQAYWGUSEISJE
+</span></span><span class="line"><span class="cl">ELZFQSMPQLZGMJCCAFLGAFGIDKLXUGYAULSMFSDMROTXTSY
+</span></span><span class="line"><span class="cl">MZLPPXARIZLAEDLYID
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>który powstał z wykorzystaniem szyfru Vigenère&rsquo;a z kluczem o długości <code>4</code>.</p>
+</div></article></main><footer class="footer">
+    <div class="footer-container"><div class="footer-line powered">Powered by <a href="https://gohugo.io/" target="_blank" rel="external nofollow noopener noreferrer" title="Hugo 0.123.7">Hugo</a> | Theme - <a href="https://github.com/hugo-fixit/FixIt" target="_blank" rel="external" title="FixIt v0.2.17-RC">FixIt</a>
+        </div><div class="footer-line copyright" itemscope itemtype="http://schema.org/CreativeWork"><i class="fa-regular fa-copyright fa-fw" aria-hidden="true"></i>
+            <span itemprop="copyrightYear">2010-2025</span><span class="author" itemprop="copyrightHolder">
+              <a href="https://gregosiewicz.github.io"target="_blank" rel="external nofollow noopener noreferrer">Adam Gregosiewicz</a></span><span class="license footer-divider"><a rel="license external nofollow noopener noreferrer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span></div><div class="footer-line statistics"></div></div>
+  </footer></div><div class="widgets"><div id="mask"></div><div class="reading-progress-bar" style="left: 0;top: 0;--bg-progress: #000;--bg-progress-dark: #fff;"></div><noscript>
+    <div class="noscript-warning">Theme FixIt works best with JavaScript enabled.</div>
+  </noscript>
+</div><link rel="stylesheet" href="/lib/katex/katex.min.css"><script src="/lib/lazysizes/lazysizes.min.js" async defer></script><script src="/lib/katex/katex.min.js" defer></script><script src="/lib/katex/auto-render.min.js" defer></script><script src="/lib/katex/copy-tex.min.js" defer></script><script src="/lib/katex/mhchem.min.js" defer></script><script>window.config={"autoBookmark":true,"code":{"copyTitle":"Copy to clipboard","maxShownLines":10},"comment":{"enable":false},"math":{"delimiters":[{"display":true,"left":"$$","right":"$$"},{"display":true,"left":"\\[","right":"\\]"},{"display":true,"left":"\\begin{equation}","right":"\\end{equation}"},{"display":true,"left":"\\begin{equation*}","right":"\\end{equation*}"},{"display":true,"left":"\\begin{align}","right":"\\end{align}"},{"display":true,"left":"\\begin{align*}","right":"\\end{align*}"},{"display":true,"left":"\\begin{alignat}","right":"\\end{alignat}"},{"display":true,"left":"\\begin{alignat*}","right":"\\end{alignat*}"},{"display":true,"left":"\\begin{gather}","right":"\\end{gather}"},{"display":true,"left":"\\begin{CD}","right":"\\end{CD}"},{"display":false,"left":"$","right":"$"},{"display":false,"left":"\\(","right":"\\)"}],"strict":false}};</script><script src="/js/theme.min.js" defer></script></body>
+</html>
