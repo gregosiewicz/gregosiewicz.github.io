@@ -118,28 +118,217 @@
       id="content"
       
       
-    ><h2 id="zasady-zaliczenia">Zasady zaliczenia</h2>
-<p>&hellip;</p>
+    ><h2 id="laboratoria">Laboratoria</h2>
+<ul>
+<li>Niedziela, zjazdy 1-5, 14.00-16.45, PE121.</li>
+<li>Niedziela, zjazdy 1-5, 17.00-19.45, PE121.</li>
+</ul>
+<h2 id="zasady-zaliczenia">Zasady zaliczenia</h2>
+<p>Zaliczenie laboratoriów polegać będzie na wyborze jednej pracy
+naukowej dotyczącej szeroko pojętej analizy danych, zrozumieniu jej
+treści, implementacji proponowanego rozwiązania, przeprowadzeniu
+eksperymentów na danych oraz przedstawieniu wyników i porównania z
+metodami wcześniejszymi.</p>
+<h3 id="wymagania">Wymagania</h3>
+<ul>
+<li>Każdy projekt powinien być realizowany przez 2 lub 3 osoby. Wkład
+wszystkich osób powinien być podobny.</li>
+<li>Implementację należy przygotować w formie repozytorium Git
+(dostępnego przez GitHub/GitLab/&hellip;).</li>
+<li>W repozytorium należy umieścić plik <code>README.md</code> z krótką instrukcją
+uruchomienia (komendy, środowisko, wymagania).</li>
+<li>W pliku <code>DESC.md</code> lub <code>desc.pdf</code> należy umieścić krótki opis
+przygotowanego projektu (postawienie problemu, opisanie
+dotychczasowych rozwiązań, przedstawienie nowego podejścia). Opis
+powinien być zrozumiały dla osoby, która zna podstawowe
+pojęcia/problemy analizy danych, ale nie jest specjalistą od
+rozważanego zagadnienia.</li>
+<li>W pliku <code>EXAMPLE.md</code> lub <code>example.pdf</code> należy umieścić przykład
+analizy wykonanej na konkretnych danych.</li>
+</ul>
+<h3 id="terminy">Terminy</h3>
+<ul>
+<li>O wyborze tematu proszę poinformować mnie mailowo do <strong>8.11.2025</strong>.</li>
+<li>Link do gotowego repozytorium proszę przesłać do <strong>26.11.2025</strong>.</li>
+<li>Podczas ostatniego zjazdu (laboratorium <strong>30.11.2025</strong>) każdy zespół
+zaprezentuje swój projekt. Ma to być krótkie i przystępne omówienie
+problemu oraz jego rozwiązania. Należy następnie wskazać istotne
+elementy implementacji oraz pokazać przykład analizy wykonanej przy
+pomocy omawianego podejścia. Całość nie powinna zająć więcej niż ok.
+<strong>20</strong> minut.</li>
+<li>Rada: proszę nie przygotowywać jakiejś dużej prezentacji z wieloma
+slajdami i morzem tekstu. Wystarczy prosty obrazek, na którym
+wskażecie główne idee. Najważniejsze jest to, co powiecie, a nie to,
+co będzie wyświetlone.</li>
+</ul>
+<h3 id="ocena">Ocena</h3>
+<p>Przy wystawianiu ocen będę brał pod uwagę jakość:</p>
+<ul>
+<li>implementacji &ndash; 40%.</li>
+<li>prezentacji &ndash; 60%.</li>
+</ul>
+<p>Podkreślam, że w prezentacji nie chodzi o przygotowanie pliku ze
+slajdami. Tego może w ogóle nie być. Chodzi o Państwa zaprezentowanie
+tematu i omówienie rozwiązania.</p>
+<h3 id="proponowane-tematy">Proponowane tematy</h3>
+<p>Poniżej przedstawiam listę przykładowych prac, które mogą być podstawą
+projektu. Niektóre prace są zupełnie proste, inne trochę trudniejsze.
+Proszę znaleźć coś dla siebie. Oczywiście można też wybrać artykuł
+spoza listy. W tej sytuacji prosiłbym o wcześniejszą informację.</p>
+<p>Dwa różne zespoły nie mogą wybrać tego samego artykułu (o wyborze
+decyduje kolejność zgłoszeń).</p>
+<p><strong>Klasteryzacja</strong></p>
+<ol>
+<li>Louis Mahon, Mirella Lapata, <a href="https://arxiv.org/abs/2505.11904"target="_blank" rel="external nofollow noopener noreferrer">K∗-Means: A Parameter-free Clustering
+Algorithm</a>.</li>
+<li>Jingyun Zhang, Hao Peng, Li Sun, Guanlin Wu, Chunyang Liu, Zhengtao
+Yu, <a href="https://arxiv.org/abs/2505.14040"target="_blank" rel="external nofollow noopener noreferrer">Unsupervised Graph Clustering with Deep Structural
+Entropy</a>.</li>
+<li>Guanlin Mo, Shihong Song, Hu Ding, <a href="https://arxiv.org/abs/2405.06899"target="_blank" rel="external nofollow noopener noreferrer">Towards Metric DBSCAN: Exact,
+Approximate, and Streaming
+Algorithms</a>.</li>
+<li>Ziqing Wang, Zhirong Ye, Yuyang Du, Yi Mao, Yanying Liu, Ziling Wu,
+Jun Wang, <a href="https://arxiv.org/abs/2210.08162"target="_blank" rel="external nofollow noopener noreferrer">AMD-DBSCAN: An Adaptive Multi-density DBSCAN for
+Datasets of Extremely Variable
+Density</a>.</li>
+<li>Alfred K. Adzika, Prudence Djagba, <a href="https://arxiv.org/abs/2410.17256"target="_blank" rel="external nofollow noopener noreferrer">Inference with
+K-means</a>.</li>
+<li>Ben Jourdan, Gregory Schwartzman, <a href="https://arxiv.org/abs/2410.05902"target="_blank" rel="external nofollow noopener noreferrer">Mini-Batch Kernel
+k-means</a>.</li>
+<li>HaoChuan Xu, Ninh Pham, <a href="https://proceedings.neurips.cc/paper_files/paper/2024/file/31421b112e5f7faf4fc577b74e45dab2-Paper-Conference.pdf"target="_blank" rel="external nofollow noopener noreferrer">Scalable DBSCAN with Random
+Projections</a>.</li>
+</ol>
+<p><strong>PCA i redukcja wymiaru</strong></p>
+<ol>
+<li>Lakshmi Jayalal, Gokularam Muthukrishnan, Sheetal Kalyani,
+<a href="https://arxiv.org/abs/2409.07275"target="_blank" rel="external nofollow noopener noreferrer">Tuning-Free Online Robust Principal Component Analysis through
+Implicit Regularization</a>.</li>
+<li>Rachel S. Y. Teo, Tan M. Nguyen, <a href="https://arxiv.org/abs/2406.13762"target="_blank" rel="external nofollow noopener noreferrer">Unveiling the Hidden Structure of
+Self-Attention via Kernel Principal Component
+Analysis</a>.</li>
+<li>Ruriko Yoshida, <a href="https://arxiv.org/abs/2504.11201"target="_blank" rel="external nofollow noopener noreferrer">Projected Gradient Descent Method for Tropical
+Principal Component Analysis over Tree
+Space</a>.</li>
+<li>Yangyang Xu, Kexin Li, Li Yang, You-Wei Wen, <a href="https://arxiv.org/abs/2504.18323"target="_blank" rel="external nofollow noopener noreferrer">Outlier-aware Tensor
+Robust Principal Component Analysis with Self-guided Data
+Augmentation</a>.</li>
+<li>Yanqing Yin, Wang Zhou, <a href="https://arxiv.org/abs/2408.13848"target="_blank" rel="external nofollow noopener noreferrer">High-Dimensional PCA Revisited: Insights
+from General Spiked Models and Data Normalization
+Effects</a>.</li>
+</ol>
+<p><strong>Klasyfikacja liniowa i regresja logistyczna</strong></p>
+<ol>
+<li>Cencheng Shen, Yuexiao Dong, <a href="https://arxiv.org/abs/2506.06845"target="_blank" rel="external nofollow noopener noreferrer">Linear Discriminant Analysis with
+Gradient Optimization on Covariance
+Inverse</a>.</li>
+<li>Jingfeng Wu, Pierre Marion, Peter Bartlett, <a href="https://arxiv.org/abs/2506.02336"target="_blank" rel="external nofollow noopener noreferrer">Large Stepsizes
+Accelerate Gradient Descent for Regularized Logistic
+Regression</a>.</li>
+<li>Qingshi Sun, Nathan Justin, Andres Gomez, Phebe Vayanos,
+<a href="https://arxiv.org/abs/2503.12012"target="_blank" rel="external nofollow noopener noreferrer">Mixed-feature Logistic Regression Robust to Distribution
+Shifts</a>.</li>
+<li>Qipeng Zhan, Zhuoping Zhou, Zixuan Wen, Zexuan Wang, Boning Tong,
+Heng Huang, Andrew J. Saykin, Paul M. Thompson, Christos
+Davatzikos, Li Shen, <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC12150743/"target="_blank" rel="external nofollow noopener noreferrer">SLR: A Modified Logistic Regression Model
+with Sinkhorn Divergence for Alzheimer’s Disease
+Classification</a>.</li>
+</ol>
+<p><strong>Analiza przeżycia</strong></p>
+<ol>
+<li>Mike Van Ness, Madeleine Udell, <a href="https://arxiv.org/abs/2404.14689"target="_blank" rel="external nofollow noopener noreferrer">Interpretable Prediction and
+Feature Selection for Survival
+Analysis</a>.</li>
+<li>Annabel L. Davies, Anthony C. C. Coolen, Tobias Galla, <a href="https://arxiv.org/abs/2110.11196"target="_blank" rel="external nofollow noopener noreferrer">Retarded
+Kernels for Longitudinal Survival Analysis and Dynamic
+Prediction</a>.</li>
+<li>Aliasghar Tarkhan, Noah Simon, <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC10724274/"target="_blank" rel="external nofollow noopener noreferrer">An Online Framework for Survival
+Analysis: Reframing Cox Proportional Hazards Model for Large Data
+Sets and Neural
+Networks</a>.</li>
+<li>Narasimha Raghavan Veeraragavan, Sai Praneeth Karimireddy, Jan
+Franz Nygård, <a href="https://arxiv.org/abs/2412.05164"target="_blank" rel="external nofollow noopener noreferrer">A Differentially Private Kaplan–Meier Estimator for
+Privacy-Preserving Survival
+Analysis</a>.</li>
+</ol>
+<p><strong>Systemy rekomendacyjne i grafowe GNN</strong></p>
+<ol>
+<li>Hansol Jung, Hyunwoo Seo, Chiehyeon Lim, <a href="https://arxiv.org/abs/2402.09784"target="_blank" rel="external nofollow noopener noreferrer">Sequential Recommendation
+on Temporal Proximities with Contrastive Learning and
+Self-Attention</a>.</li>
+<li>Xiangnan He, Kuan Deng, Xiang Wang, Yan Li, Yongdong Zhang, Meng
+Wang, <a href="https://arxiv.org/abs/2002.02126"target="_blank" rel="external nofollow noopener noreferrer">LightGCN: Simplifying and Powering Graph Convolution Network
+for Recommendation</a>.</li>
+</ol>
+<p><strong>Modelowanie czasowe i regresja sekwencyjna</strong></p>
+<ol>
+<li>Matthew Ricci, Guy Pelc, Zoe Piran, Noa Moriel, Mor Nitzan,
+<a href="https://arxiv.org/abs/2412.03496"target="_blank" rel="external nofollow noopener noreferrer">TRENDy: Temporal Regression of Effective Non-linear
+Dynamics</a>.</li>
+<li>Emirhan Ilhan, Mehmet Y. Turali, Suleyman S. Kozat, <a href="https://repository.bilkent.edu.tr/server/api/core/bitstreams/444d031a-50c8-4b93-aa17-124622215389/content"target="_blank" rel="external nofollow noopener noreferrer">Gradient
+Boosting With Moving-Average Terms for Nonlinear Sequential
+Regression</a>.</li>
+</ol>
+<p><strong>Statystyczna kontrola procesu</strong></p>
+<ol>
+<li>Tanuja Negi, <a href="https://arxiv.org/abs/2508.05790"target="_blank" rel="external nofollow noopener noreferrer">Estimated Phase II Weibull Control Chart for
+Monitoring Times Between Events</a>.</li>
+<li>Mohammad Iqbal Rasul Seeam, Victor S. Sheng, <a href="https://arxiv.org/abs/2509.16431"target="_blank" rel="external nofollow noopener noreferrer">Proactive Statistical
+Process Control Using AI: A Time Series Forecasting Approach for
+Semiconductor Manufacturing</a>.</li>
+</ol>
+<p><strong>Reguły asocjacyjne</strong></p>
+<ol>
+<li>Hadar Ben-Efraim, Susan B. Davidson, Amit Somech, <a href="https://arxiv.org/abs/2412.18522"target="_blank" rel="external nofollow noopener noreferrer">SHARQ:
+Explainability Framework for Association Rules on Relational
+Data</a>.</li>
+</ol>
+<p><strong>Testowanie statystyczne</strong></p>
+<ol>
+<li>Miguel Araujo-Voces, Víctor Quesada, <a href="https://arxiv.org/abs/2110.14315"target="_blank" rel="external nofollow noopener noreferrer">An Exact, Unconditional,
+Nuisance-Agnostic Test for Contingency
+Tables</a>.</li>
+</ol>
 <h2 id="konsultacje">Konsultacje</h2>
 <p><strong>Adam Gregosiewicz</strong></p>
 <ul>
 <li>Środa, 10.15&ndash;11.00, Pentagon, pok. 3 (PE 3).</li>
 <li>Czwartek, 14.15-15.00, Pentagon, pok. 3 (PE 3).</li>
 </ul>
-<h2 id="laboratoria">Laboratoria</h2>
+<h2 id="laboratoria-1">Laboratoria</h2>
 <h3 id="tydzień-1-----5102024">Tydzień 1 &mdash; 5.10.2024</h3>
 <p><a href="lab/lab-01">Zadania</a></p>
 <h3 id="tydzień-2-----19102024">Tydzień 2 &mdash; 19.10.2024</h3>
 <p><a href="lab/lab-02">Zadania</a></p>
 <h2 id="materiały">Materiały</h2>
+<p>Poza materiałami cytowanymi w sylabusie przedmiotu polecam:</p>
 <h3 id="książki">Książki</h3>
 <ol>
-<li>&hellip;</li>
+<li>Jiawei Han, Micheline Kamber, Jian Pei, <a href="https://ia600603.us.archive.org/2/items/datamining_201811/DS-book%20u5.pdf"target="_blank" rel="external nofollow noopener noreferrer">Data Mining: Concepts and
+Techniques</a>.</li>
+<li>Gareth James, Daniela Witten, Trevor Hastie, Rob Tibshirani,
+Jonathan Taylor <a href="https://www.statlearning.com/"target="_blank" rel="external nofollow noopener noreferrer">An Introduction to Statistical
+Learning</a>.</li>
+<li>Pang-Ning Tan, Michael Steinbach, Vipin Kumar, <a href="https://www.ceom.ou.edu/media/docs/upload/Pang-Ning_Tan_Michael_Steinbach_Vipin_Kumar_-_Introduction_to_Data_Mining-Pe_NRDK4fi.pdf"target="_blank" rel="external nofollow noopener noreferrer">Introduction to
+Data
+Mining</a>.</li>
+<li>Sergio J. Rey, Dani Arribas-Bel, Levi J. Wolf, <a href="https://geographicdata.science/book/intro.html"target="_blank" rel="external nofollow noopener noreferrer">Geographic Data
+Science with
+Python</a>.</li>
+<li>Wes McKinney, <a href="https://wesmckinney.com/book/"target="_blank" rel="external nofollow noopener noreferrer">Python for Data
+Analysis</a>.</li>
 </ol>
 <h3 id="strony-internetowe">Strony internetowe</h3>
-<p>&hellip;</p>
+<ol>
+<li><a href="https://www-users.cse.umn.edu/~kumar001/dmbook/index.php"target="_blank" rel="external nofollow noopener noreferrer">Introduction to Data
+Mining</a>.</li>
+</ol>
 <h3 id="kursy-wideo">Kursy wideo</h3>
-<p>&hellip;</p>
+<ol>
+<li><a href="https://www.youtube.com/@statquest"target="_blank" rel="external nofollow noopener noreferrer">StatQuest</a>.</li>
+<li><a href="https://www.youtube.com/@zedstatistics"target="_blank" rel="external nofollow noopener noreferrer">zedstatistics</a>.</li>
+<li><a href="https://www.coursera.org/specializations/data-analysis-python"target="_blank" rel="external nofollow noopener noreferrer">Data Analysis with Python
+Specialization</a>.</li>
+</ol>
 </div></article></main><footer class="footer">
     <div class="footer-container"><div class="footer-line powered">Powered by <a href="https://gohugo.io/" target="_blank" rel="external nofollow noopener noreferrer" title="Hugo 0.123.7">Hugo</a> | Theme - <a href="https://github.com/hugo-fixit/FixIt" target="_blank" rel="external" title="FixIt v0.2.17-RC">FixIt</a>
         </div><div class="footer-line copyright" itemscope itemtype="http://schema.org/CreativeWork"><i class="fa-regular fa-copyright fa-fw" aria-hidden="true"></i>
