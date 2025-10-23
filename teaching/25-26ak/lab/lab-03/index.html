@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html itemscope itemtype="http://schema.org/WebPage" lang="en">
+  <head>
+    
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+    <meta name="robots" content="noodp" />
+    <title>Algorytmy kryptograficzne | Laboratorium 2 - Adam Gregosiewicz</title><meta name="author" content="Adam Gregosiewicz">
+<meta name="author-link" content="https://gregosiewicz.github.io">
+<meta name="description" content="Odszyfruj szyfrogram 1 2 3 4 5 6 7 8 9 10 11 12 13 14 IEIFGIKIYZOREGAYICAXELSBGUSTRZOOEFVLZJRJIRIGTFT WZVUEEELUJJEGIYSSHLRVLUNPCNEWLTNZIZNGAYNPBREARB VYUCEKTSAGMBVUNIHTNRBMKWTUTSRBNAYQFVLLNAXXFCGON LDITHTMOEAXAGAYDIGOCTAAMBVTRYSOOHUNKPRXETSNUILB JNAEIFZIZVTZOSACIYEBUKBPTGXLKPRSAEHRFUKQPOAYIFI FVIFKDTTVLZRQEZODALMBRBGNEXAPACEMQUEDNGHLZOVTAE ENGSKPVTGTFVMCJIPIEATRWNYIGXELLOKUZVFGSQOHGXZVN TIXAYLUELVTPLRGBWLTNXIYMRGUIMNYOCTBYGRKUONPIGPC CTSULWOJMBRBBAROITBNRTPUMAUGXLJCVZAMLLILFOEGMXE QPCCTOKHLVRECBMNHRLIABNYQAQIEIFILFJNHLPFBKCEAGG NNEGAUKIGZHPEAWIWBUKTHEAMCVBUIEYTHKSZBJOLWBRIIJ AVHLPTBILFOEGMXENFUTPVTEEONGMNMEWUPSGBIEAVTSFCU TQRGGNAEIGPCCTOKEITEXGVTLJIQFVVOCBGUGFEFLQYMGNE CTUXUEAJKRDAEXVVQAMGTVRGVPIZGNZRORNYMZGCSIAX który powstał z wykorzystaniem szyfru Vigenère&rsquo;a.
+Odszyfruj szyfrogram 1 2 3 4 5 6 VMXRWSLSBHPZTXIVSRBEHBAHEMSBXIVMSBOSCXPSXDXVRCX VRRAXHBSBLPXIIVRJXIXWDXJSIETIISRBBXDXWVMXPXIISC XPSXDXVMHVHVVMXXBJRKVMXVMEXBVTWUVMXTIXRKYRWJIHB JLXBXWHPXJTEHVXJRQSBSRBYSPPMHDXHPVXWXJIRATEMVMH VRBXYSPPCXHCPXVRIQXHORKAHEMSBXIVMSBOSBLYSVMRTVX FQXEVSBLVRCXERBVWHJSEVXJ który powstał z wykorzystaniem szyfru podstawieniowego.
+Tego samego klucza k użyto do zaszyfrowania ośmiu wiadomości szyfrem jednorazowym (OTP). Odszyfruj wszystkie wiadomości." /><meta itemprop="name" content="Algorytmy kryptograficzne | Laboratorium 2">
+<meta itemprop="description" content="Odszyfruj szyfrogram 1 2 3 4 5 6 7 8 9 10 11 12 13 14 IEIFGIKIYZOREGAYICAXELSBGUSTRZOOEFVLZJRJIRIGTFT WZVUEEELUJJEGIYSSHLRVLUNPCNEWLTNZIZNGAYNPBREARB VYUCEKTSAGMBVUNIHTNRBMKWTUTSRBNAYQFVLLNAXXFCGON LDITHTMOEAXAGAYDIGOCTAAMBVTRYSOOHUNKPRXETSNUILB JNAEIFZIZVTZOSACIYEBUKBPTGXLKPRSAEHRFUKQPOAYIFI FVIFKDTTVLZRQEZODALMBRBGNEXAPACEMQUEDNGHLZOVTAE ENGSKPVTGTFVMCJIPIEATRWNYIGXELLOKUZVFGSQOHGXZVN TIXAYLUELVTPLRGBWLTNXIYMRGUIMNYOCTBYGRKUONPIGPC CTSULWOJMBRBBAROITBNRTPUMAUGXLJCVZAMLLILFOEGMXE QPCCTOKHLVRECBMNHRLIABNYQAQIEIFILFJNHLPFBKCEAGG NNEGAUKIGZHPEAWIWBUKTHEAMCVBUIEYTHKSZBJOLWBRIIJ AVHLPTBILFOEGMXENFUTPVTEEONGMNMEWUPSGBIEAVTSFCU TQRGGNAEIGPCCTOKEITEXGVTLJIQFVVOCBGUGFEFLQYMGNE CTUXUEAJKRDAEXVVQAMGTVRGVPIZGNZRORNYMZGCSIAX który powstał z wykorzystaniem szyfru Vigenère&rsquo;a.
+Odszyfruj szyfrogram 1 2 3 4 5 6 VMXRWSLSBHPZTXIVSRBEHBAHEMSBXIVMSBOSCXPSXDXVRCX VRRAXHBSBLPXIIVRJXIXWDXJSIETIISRBBXDXWVMXPXIISC XPSXDXVMHVHVVMXXBJRKVMXVMEXBVTWUVMXTIXRKYRWJIHB JLXBXWHPXJTEHVXJRQSBSRBYSPPMHDXHPVXWXJIRATEMVMH VRBXYSPPCXHCPXVRIQXHORKAHEMSBXIVMSBOSBLYSVMRTVX FQXEVSBLVRCXERBVWHJSEVXJ który powstał z wykorzystaniem szyfru podstawieniowego.
+Tego samego klucza k użyto do zaszyfrowania ośmiu wiadomości szyfrem jednorazowym (OTP). Odszyfruj wszystkie wiadomości.">
+<meta itemprop="dateModified" content="2025-10-23T12:21:38+02:00" />
+<meta itemprop="wordCount" content="168"><meta itemprop="image" content="https://gregosiewicz.github.io/logo.png" />
+<meta itemprop="keywords" content="" /><meta property="og:title" content="Algorytmy kryptograficzne | Laboratorium 2" />
+<meta property="og:description" content="Odszyfruj szyfrogram 1 2 3 4 5 6 7 8 9 10 11 12 13 14 IEIFGIKIYZOREGAYICAXELSBGUSTRZOOEFVLZJRJIRIGTFT WZVUEEELUJJEGIYSSHLRVLUNPCNEWLTNZIZNGAYNPBREARB VYUCEKTSAGMBVUNIHTNRBMKWTUTSRBNAYQFVLLNAXXFCGON LDITHTMOEAXAGAYDIGOCTAAMBVTRYSOOHUNKPRXETSNUILB JNAEIFZIZVTZOSACIYEBUKBPTGXLKPRSAEHRFUKQPOAYIFI FVIFKDTTVLZRQEZODALMBRBGNEXAPACEMQUEDNGHLZOVTAE ENGSKPVTGTFVMCJIPIEATRWNYIGXELLOKUZVFGSQOHGXZVN TIXAYLUELVTPLRGBWLTNXIYMRGUIMNYOCTBYGRKUONPIGPC CTSULWOJMBRBBAROITBNRTPUMAUGXLJCVZAMLLILFOEGMXE QPCCTOKHLVRECBMNHRLIABNYQAQIEIFILFJNHLPFBKCEAGG NNEGAUKIGZHPEAWIWBUKTHEAMCVBUIEYTHKSZBJOLWBRIIJ AVHLPTBILFOEGMXENFUTPVTEEONGMNMEWUPSGBIEAVTSFCU TQRGGNAEIGPCCTOKEITEXGVTLJIQFVVOCBGUGFEFLQYMGNE CTUXUEAJKRDAEXVVQAMGTVRGVPIZGNZRORNYMZGCSIAX który powstał z wykorzystaniem szyfru Vigenère&rsquo;a.
+Odszyfruj szyfrogram 1 2 3 4 5 6 VMXRWSLSBHPZTXIVSRBEHBAHEMSBXIVMSBOSCXPSXDXVRCX VRRAXHBSBLPXIIVRJXIXWDXJSIETIISRBBXDXWVMXPXIISC XPSXDXVMHVHVVMXXBJRKVMXVMEXBVTWUVMXTIXRKYRWJIHB JLXBXWHPXJTEHVXJRQSBSRBYSPPMHDXHPVXWXJIRATEMVMH VRBXYSPPCXHCPXVRIQXHORKAHEMSBXIVMSBOSBLYSVMRTVX FQXEVSBLVRCXERBVWHJSEVXJ który powstał z wykorzystaniem szyfru podstawieniowego.
+Tego samego klucza k użyto do zaszyfrowania ośmiu wiadomości szyfrem jednorazowym (OTP). Odszyfruj wszystkie wiadomości." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://gregosiewicz.github.io/teaching/25-26ak/lab/lab-03/" /><meta property="og:image" content="https://gregosiewicz.github.io/logo.png" /><meta property="article:section" content="teaching" />
+
+<meta property="article:modified_time" content="2025-10-23T12:21:38+02:00" />
+
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:image" content="https://gregosiewicz.github.io/logo.png" /><meta name="twitter:title" content="Algorytmy kryptograficzne | Laboratorium 2"/>
+<meta name="twitter:description" content="Odszyfruj szyfrogram 1 2 3 4 5 6 7 8 9 10 11 12 13 14 IEIFGIKIYZOREGAYICAXELSBGUSTRZOOEFVLZJRJIRIGTFT WZVUEEELUJJEGIYSSHLRVLUNPCNEWLTNZIZNGAYNPBREARB VYUCEKTSAGMBVUNIHTNRBMKWTUTSRBNAYQFVLLNAXXFCGON LDITHTMOEAXAGAYDIGOCTAAMBVTRYSOOHUNKPRXETSNUILB JNAEIFZIZVTZOSACIYEBUKBPTGXLKPRSAEHRFUKQPOAYIFI FVIFKDTTVLZRQEZODALMBRBGNEXAPACEMQUEDNGHLZOVTAE ENGSKPVTGTFVMCJIPIEATRWNYIGXELLOKUZVFGSQOHGXZVN TIXAYLUELVTPLRGBWLTNXIYMRGUIMNYOCTBYGRKUONPIGPC CTSULWOJMBRBBAROITBNRTPUMAUGXLJCVZAMLLILFOEGMXE QPCCTOKHLVRECBMNHRLIABNYQAQIEIFILFJNHLPFBKCEAGG NNEGAUKIGZHPEAWIWBUKTHEAMCVBUIEYTHKSZBJOLWBRIIJ AVHLPTBILFOEGMXENFUTPVTEEONGMNMEWUPSGBIEAVTSFCU TQRGGNAEIGPCCTOKEITEXGVTLJIQFVVOCBGUGFEFLQYMGNE CTUXUEAJKRDAEXVVQAMGTVRGVPIZGNZRORNYMZGCSIAX który powstał z wykorzystaniem szyfru Vigenère&rsquo;a.
+Odszyfruj szyfrogram 1 2 3 4 5 6 VMXRWSLSBHPZTXIVSRBEHBAHEMSBXIVMSBOSCXPSXDXVRCX VRRAXHBSBLPXIIVRJXIXWDXJSIETIISRBBXDXWVMXPXIISC XPSXDXVMHVHVVMXXBJRKVMXVMEXBVTWUVMXTIXRKYRWJIHB JLXBXWHPXJTEHVXJRQSBSRBYSPPMHDXHPVXWXJIRATEMVMH VRBXYSPPCXHCPXVRIQXHORKAHEMSBXIVMSBOSBLYSVMRTVX FQXEVSBLVRCXERBVWHJSEVXJ który powstał z wykorzystaniem szyfru podstawieniowego.
+Tego samego klucza k użyto do zaszyfrowania ośmiu wiadomości szyfrem jednorazowym (OTP). Odszyfruj wszystkie wiadomości."/>
+<meta name="twitter:site" content="@xxxx"/>
+<meta name="application-name" content="Adam Gregosiewicz">
+<meta name="apple-mobile-web-app-title" content="Adam Gregosiewicz"><meta name="theme-color" data-light="#f8f8f8" data-dark="#252627" content="#f8f8f8"><meta name="msapplication-TileColor" content="#2376b7"><link rel="icon" href="/logo_white_circle.svg"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#2376b7"><link rel="canonical" href="https://gregosiewicz.github.io/teaching/25-26ak/lab/lab-03/" /><link rel="next" href="https://gregosiewicz.github.io/teaching/25-26ak/lab/lab-02/" /><link rel="stylesheet" href="/css/style.min.css">
+
+
+<script type="application/ld+json">
+  {
+    "@context": "http://schema.org",
+    "@type": "BlogPosting",
+    "headline": "Algorytmy kryptograficzne | Laboratorium 2",
+    "inLanguage": "en",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https:\/\/gregosiewicz.github.io\/teaching\/25-26ak\/lab\/lab-03\/"
+    },"image": ["https:\/\/gregosiewicz.github.io\/images\/Apple-Devices-Preview.jpg"],"genre": "teaching","wordcount":  168 ,
+    "url": "https:\/\/gregosiewicz.github.io\/teaching\/25-26ak\/lab\/lab-03\/","dateModified": "2025-10-23T12:21:38+02:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
+      "@type": "Organization",
+      "name": "Adam Gregosiewicz","logo": {
+          "@type": "ImageObject",
+          "url": "https:\/\/gregosiewicz.github.io\/images\/ag.jpg",
+          "width":  400 ,
+          "height":  400 
+        }},"author": {
+        "@type": "Person",
+        "name": "Adam Gregosiewicz"
+      },"description": ""
+  }
+  </script></head>
+  <body data-header-desktop="sticky" data-header-mobile="normal"><script>(window.localStorage?.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('auto' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'auto' === 'dark')) && document.body.setAttribute('data-theme', 'dark');</script><div class="wrapper"><header class="desktop animate__faster" id="header-desktop">
+  <div class="header-wrapper">
+    <div class="header-title">
+      <a href="/" title="Adam Gregosiewicz"><img
+    class="lazyload logo"
+    src="/svg/loading.min.svg"
+    data-src="/logo.svg"
+    data-srcset="/logo.svg, /logo.svg 1.5x, /logo.svg 2x"
+    data-sizes="auto"
+    alt="Adam Gregosiewicz"
+    title="Adam Gregosiewicz"/><span class="header-title-text">Adam Gregosiewicz</span></a><span class="header-subtitle"></span></div>
+    <nav>
+      <ul class="menu"><li class="menu-item">
+              <a
+                class="menu-link"
+                href="/"
+                
+                
+              >Home</a></li><li class="menu-item">
+              <a
+                class="menu-link"
+                href="/publications/"
+                
+                
+              >Publications</a></li><li class="menu-item">
+              <a
+                class="menu-link"
+                href="/talks/"
+                
+                
+              >Talks</a></li><li class="menu-item">
+              <a
+                class="menu-link"
+                href="/teaching/"
+                
+                
+              >Teaching</a></li><li class="menu-item delimiter"></li><li class="menu-item theme-switch" title="Switch Theme"><i data-svg-src="/switch.svg" aria-hidden="true"></i>
+        </li>
+      </ul>
+    </nav>
+  </div>
+</header><header class="mobile animate__faster" id="header-mobile">
+  <div class="header-container">
+    <div class="header-wrapper">
+      <div class="header-title">
+        <a href="/" title="Adam Gregosiewicz"><img
+    class="lazyload logo"
+    src="/svg/loading.min.svg"
+    data-src="/logo.svg"
+    data-srcset="/logo.svg, /logo.svg 1.5x, /logo.svg 2x"
+    data-sizes="auto"
+    alt="/logo.svg"
+    title="/logo.svg"/><span class="header-title-text">Adam Gregosiewicz</span></a><span class="header-subtitle"></span></div>
+      <div class="menu-toggle" id="menu-toggle-mobile">
+        <span></span><span></span><span></span>
+      </div>
+    </div>
+    <nav>
+      <ul class="menu" id="menu-mobile"><li
+              class="menu-item"
+            ><a
+                  class="menu-link"
+                  href="/"
+                  
+                  
+                >Home</a></li><li
+              class="menu-item"
+            ><a
+                  class="menu-link"
+                  href="/publications/"
+                  
+                  
+                >Publications</a></li><li
+              class="menu-item"
+            ><a
+                  class="menu-link"
+                  href="/talks/"
+                  
+                  
+                >Talks</a></li><li
+              class="menu-item"
+            ><a
+                  class="menu-link"
+                  href="/teaching/"
+                  
+                  
+                >Teaching</a></li><li class="menu-item theme-switch" title="Switch Theme"><i data-svg-src="/switch.svg" aria-hidden="true"></i>
+        </li></ul>
+    </nav>
+  </div>
+</header><main class="container" data-page-style="normal"><article class="page single special">
+    <div class="header"><h1 class="single-title animate__animated animate__pulse animate__faster">Algorytmy kryptograficzne | Laboratorium 2</h1></div><div
+      class="content"
+      id="content"
+      
+      
+    ><ol>
+<li>Odszyfruj szyfrogram</li>
+</ol>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">IEIFGIKIYZOREGAYICAXELSBGUSTRZOOEFVLZJRJIRIGTFT
+</span></span><span class="line"><span class="cl">WZVUEEELUJJEGIYSSHLRVLUNPCNEWLTNZIZNGAYNPBREARB
+</span></span><span class="line"><span class="cl">VYUCEKTSAGMBVUNIHTNRBMKWTUTSRBNAYQFVLLNAXXFCGON
+</span></span><span class="line"><span class="cl">LDITHTMOEAXAGAYDIGOCTAAMBVTRYSOOHUNKPRXETSNUILB
+</span></span><span class="line"><span class="cl">JNAEIFZIZVTZOSACIYEBUKBPTGXLKPRSAEHRFUKQPOAYIFI
+</span></span><span class="line"><span class="cl">FVIFKDTTVLZRQEZODALMBRBGNEXAPACEMQUEDNGHLZOVTAE
+</span></span><span class="line"><span class="cl">ENGSKPVTGTFVMCJIPIEATRWNYIGXELLOKUZVFGSQOHGXZVN
+</span></span><span class="line"><span class="cl">TIXAYLUELVTPLRGBWLTNXIYMRGUIMNYOCTBYGRKUONPIGPC
+</span></span><span class="line"><span class="cl">CTSULWOJMBRBBAROITBNRTPUMAUGXLJCVZAMLLILFOEGMXE
+</span></span><span class="line"><span class="cl">QPCCTOKHLVRECBMNHRLIABNYQAQIEIFILFJNHLPFBKCEAGG
+</span></span><span class="line"><span class="cl">NNEGAUKIGZHPEAWIWBUKTHEAMCVBUIEYTHKSZBJOLWBRIIJ
+</span></span><span class="line"><span class="cl">AVHLPTBILFOEGMXENFUTPVTEEONGMNMEWUPSGBIEAVTSFCU
+</span></span><span class="line"><span class="cl">TQRGGNAEIGPCCTOKEITEXGVTLJIQFVVOCBGUGFEFLQYMGNE
+</span></span><span class="line"><span class="cl">CTUXUEAJKRDAEXVVQAMGTVRGVPIZGNZRORNYMZGCSIAX
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>który powstał z wykorzystaniem szyfru Vigenère&rsquo;a.</p>
+<ol start="2">
+<li>Odszyfruj szyfrogram</li>
+</ol>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">VMXRWSLSBHPZTXIVSRBEHBAHEMSBXIVMSBOSCXPSXDXVRCX
+</span></span><span class="line"><span class="cl">VRRAXHBSBLPXIIVRJXIXWDXJSIETIISRBBXDXWVMXPXIISC
+</span></span><span class="line"><span class="cl">XPSXDXVMHVHVVMXXBJRKVMXVMEXBVTWUVMXTIXRKYRWJIHB
+</span></span><span class="line"><span class="cl">JLXBXWHPXJTEHVXJRQSBSRBYSPPMHDXHPVXWXJIRATEMVMH
+</span></span><span class="line"><span class="cl">VRBXYSPPCXHCPXVRIQXHORKAHEMSBXIVMSBOSBLYSVMRTVX
+</span></span><span class="line"><span class="cl">FQXEVSBLVRCXERBVWHJSEVXJ
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>który powstał z wykorzystaniem szyfru podstawieniowego.</p>
+<ol start="3">
+<li>Tego samego klucza <code>k</code> użyto do zaszyfrowania ośmiu wiadomości
+szyfrem jednorazowym (OTP). Odszyfruj wszystkie wiadomości.</li>
+</ol>
+<p><em>Wskazówka</em>: Wszystkie teksty jawne zawierają wyłącznie mały litery i
+spacje. Zastanów się, co dzieje się z literami w kodzie ASCII, gdy
+xorujemy je ze spacją. Wykorzystaj też fakt, że w tekstach
+angielskich często pojawia się słowo <code>the</code>.</p>
+<p>Szyfrogramy wiadomości w formacie szesnastkowym:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">01:
+</span></span><span class="line"><span class="cl">fa313f179908743aeda9361b304d9aba31eaeb498908373869a362b303ba10b9
+</span></span><span class="line"><span class="cl">96a999ab61c4124f1efad632612f0d0f77dbd5729746
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">02:
+</span></span><span class="line"><span class="cl">f93c7a5b9e016168fde1324b2b5a8cbf74e1a51d9505727667bd36a00aad15b9
+</span></span><span class="line"><span class="cl">92a49aa92485155d0fed84667d22484762dbd56f80
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">03:
+</span></span><span class="line"><span class="cl">fa313f1789026527fbfd77042e1f81a431aeb85c8708632f2cbb24e316a01eb9
+</span></span><span class="line"><span class="cl">84b791a126c054491ee9952e6c2e0d137adf877698586aa5
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">04:
+</span></span><span class="line"><span class="cl">fe353f568802352afbe0390c604b9da974eaa45e9400723878a762b70de80ff1
+</span></span><span class="line"><span class="cl">83e597a327cc175e5bea93206638484766d2c23b944460a397632101dd078eeb
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">05:
+</span></span><span class="line"><span class="cl">fa313f179808742be1a9250e365690bb31eaeb49890837316db927e303a61fb9
+</span></span><span class="line"><span class="cl">92ad9dab61d11c5e5bfc9327646a5a0666d9cf7e9d0171bf9b2d3048cd0a84
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">06:
+</span></span><span class="line"><span class="cl">fa313f1788137a3ae4a9341e341f81a431aea754860563252cb536e316a01eb9
+</span></span><span class="line"><span class="cl">92ad9da435c0061b1ae692667d22484762d6c662d9446bb39b69
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">07:
+</span></span><span class="line"><span class="cl">ae2d3252db047d2defa9240e324990a874faa358c11e78237cf435ab0ba41eb9
+</span></span><span class="line"><span class="cl">92ad9de523c41a5f5bf89a27702f494773c8c86e974525a396686651c81d80
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">08:
+</span></span><span class="line"><span class="cl">ef3f2e5289477624e8fa244b345790ec27fabe59840363252ca437b742bc13fc
+</span></span><span class="line"><span class="cl">c6a797aa2ad6545215a8822e6c6a4106709ac97e985325a396686646c81b8e
+</span></span></code></pre></td></tr></table>
+</div>
+</div></div></article></main><footer class="footer">
+    <div class="footer-container"><div class="footer-line powered">Powered by <a href="https://gohugo.io/" target="_blank" rel="external nofollow noopener noreferrer" title="Hugo 0.123.7">Hugo</a> | Theme - <a href="https://github.com/hugo-fixit/FixIt" target="_blank" rel="external" title="FixIt v0.2.17-RC">FixIt</a>
+        </div><div class="footer-line copyright" itemscope itemtype="http://schema.org/CreativeWork"><i class="fa-regular fa-copyright fa-fw" aria-hidden="true"></i>
+            <span itemprop="copyrightYear">2010-2025</span><span class="author" itemprop="copyrightHolder">
+              <a href="https://gregosiewicz.github.io"target="_blank" rel="external nofollow noopener noreferrer">Adam Gregosiewicz</a></span><span class="license footer-divider"><a rel="license external nofollow noopener noreferrer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span></div><div class="footer-line statistics"></div></div>
+  </footer></div><div class="widgets"><div id="mask"></div><div class="reading-progress-bar" style="left: 0;top: 0;--bg-progress: #000;--bg-progress-dark: #fff;"></div><noscript>
+    <div class="noscript-warning">Theme FixIt works best with JavaScript enabled.</div>
+  </noscript>
+</div><link rel="stylesheet" href="/lib/katex/katex.min.css"><script src="/lib/lazysizes/lazysizes.min.js" async defer></script><script src="/lib/katex/katex.min.js" defer></script><script src="/lib/katex/auto-render.min.js" defer></script><script src="/lib/katex/copy-tex.min.js" defer></script><script src="/lib/katex/mhchem.min.js" defer></script><script>window.config={"autoBookmark":true,"code":{"copyTitle":"Copy to clipboard","maxShownLines":10},"comment":{"enable":false},"math":{"delimiters":[{"display":true,"left":"$$","right":"$$"},{"display":true,"left":"\\[","right":"\\]"},{"display":true,"left":"\\begin{equation}","right":"\\end{equation}"},{"display":true,"left":"\\begin{equation*}","right":"\\end{equation*}"},{"display":true,"left":"\\begin{align}","right":"\\end{align}"},{"display":true,"left":"\\begin{align*}","right":"\\end{align*}"},{"display":true,"left":"\\begin{alignat}","right":"\\end{alignat}"},{"display":true,"left":"\\begin{alignat*}","right":"\\end{alignat*}"},{"display":true,"left":"\\begin{gather}","right":"\\end{gather}"},{"display":true,"left":"\\begin{CD}","right":"\\end{CD}"},{"display":false,"left":"$","right":"$"},{"display":false,"left":"\\(","right":"\\)"}],"strict":false}};</script><script src="/js/theme.min.js" defer></script><script>
+      window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js', new Date());
+      gtag('config', 'G-D6NS0QSV1X', { 'anonymize_ip': true });
+    </script><script src="https://www.googletagmanager.com/gtag/js?id=G-D6NS0QSV1X" async></script></body>
+</html>
