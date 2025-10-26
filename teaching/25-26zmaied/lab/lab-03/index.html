@@ -7,31 +7,35 @@
     <meta name="robots" content="noodp" />
     <title>Zaawansowane metody analizy i eksploracji danych | I2N | semestr zimowy 2025/2026 - Adam Gregosiewicz</title><meta name="author" content="Adam Gregosiewicz">
 <meta name="author-link" content="https://gregosiewicz.github.io">
-<meta name="description" content="Laboratorium 2 Zaimplementuj algorytm k-means w dwóch wersjach:
-bez użycia bibliotek numerycznych (czysty Python), z wykorzystaniem biblioteki numpy. Początkowy wybór centroidów ma być losowy z (dyskretnym) rozkładem jednostajnym. Następnie:
-Porównaj czas działania obu wersji dla 1000, 5000, 20000 i 100000 losowych punktów oraz 3, 5 i 10 klastrów, Stwórz funkcję prezentującą obliczone klastry w formie graficznej (matplotlib z wykresem typu scatter, każdy klaster innego koloru). (Dla chętnych) Przedstaw animację (wystarczy gif), prezentującą zmiany w klastrach w kolejnych krokach algorytmu." /><meta itemprop="name" content="Zaawansowane metody analizy i eksploracji danych | I2N | semestr zimowy 2025/2026">
-<meta itemprop="description" content="Laboratorium 2 Zaimplementuj algorytm k-means w dwóch wersjach:
-bez użycia bibliotek numerycznych (czysty Python), z wykorzystaniem biblioteki numpy. Początkowy wybór centroidów ma być losowy z (dyskretnym) rozkładem jednostajnym. Następnie:
-Porównaj czas działania obu wersji dla 1000, 5000, 20000 i 100000 losowych punktów oraz 3, 5 i 10 klastrów, Stwórz funkcję prezentującą obliczone klastry w formie graficznej (matplotlib z wykresem typu scatter, każdy klaster innego koloru). (Dla chętnych) Przedstaw animację (wystarczy gif), prezentującą zmiany w klastrach w kolejnych krokach algorytmu.">
-<meta itemprop="dateModified" content="2025-10-19T22:40:23+02:00" />
-<meta itemprop="wordCount" content="191"><meta itemprop="image" content="https://gregosiewicz.github.io/logo.png" />
+<meta name="description" content="Laboratorium 3 Zaimplementuj algorytm DBSCAN i przedstaw graficznie obliczone klastry dla losowych zbiorów danych.
+Dobierz odpowiednie zbiory danych, aby zobrazować różnice między algorytmami k-means i DBSCAN.
+Dla zbiorów danych z zadania 3 oblicz (zaimplementuj) wskaźniki:
+indeks Calińskiego&ndash;Harabasza, indeks sylwetki, indeks Daviesa&ndash;Bouldina, indeks Dunna, indeks Randa. Dla klasycznego algorytmu k-means zmień sposób wybierania początkowych centroidów. Pierwszy wybierz losowo, a każdy następny wybierz z jeszcze niewybranych punktów z prawdopodobieństwem proporcjonalnym do kwadratu odległości między tym punktem a najbliższym centroidem." /><meta itemprop="name" content="Zaawansowane metody analizy i eksploracji danych | I2N | semestr zimowy 2025/2026">
+<meta itemprop="description" content="Laboratorium 3 Zaimplementuj algorytm DBSCAN i przedstaw graficznie obliczone klastry dla losowych zbiorów danych.
+Dobierz odpowiednie zbiory danych, aby zobrazować różnice między algorytmami k-means i DBSCAN.
+Dla zbiorów danych z zadania 3 oblicz (zaimplementuj) wskaźniki:
+indeks Calińskiego&ndash;Harabasza, indeks sylwetki, indeks Daviesa&ndash;Bouldina, indeks Dunna, indeks Randa. Dla klasycznego algorytmu k-means zmień sposób wybierania początkowych centroidów. Pierwszy wybierz losowo, a każdy następny wybierz z jeszcze niewybranych punktów z prawdopodobieństwem proporcjonalnym do kwadratu odległości między tym punktem a najbliższym centroidem.">
+<meta itemprop="dateModified" content="2025-10-26T13:38:01+01:00" />
+<meta itemprop="wordCount" content="77"><meta itemprop="image" content="https://gregosiewicz.github.io/logo.png" />
 <meta itemprop="keywords" content="" /><meta property="og:title" content="Zaawansowane metody analizy i eksploracji danych | I2N | semestr zimowy 2025/2026" />
-<meta property="og:description" content="Laboratorium 2 Zaimplementuj algorytm k-means w dwóch wersjach:
-bez użycia bibliotek numerycznych (czysty Python), z wykorzystaniem biblioteki numpy. Początkowy wybór centroidów ma być losowy z (dyskretnym) rozkładem jednostajnym. Następnie:
-Porównaj czas działania obu wersji dla 1000, 5000, 20000 i 100000 losowych punktów oraz 3, 5 i 10 klastrów, Stwórz funkcję prezentującą obliczone klastry w formie graficznej (matplotlib z wykresem typu scatter, każdy klaster innego koloru). (Dla chętnych) Przedstaw animację (wystarczy gif), prezentującą zmiany w klastrach w kolejnych krokach algorytmu." />
+<meta property="og:description" content="Laboratorium 3 Zaimplementuj algorytm DBSCAN i przedstaw graficznie obliczone klastry dla losowych zbiorów danych.
+Dobierz odpowiednie zbiory danych, aby zobrazować różnice między algorytmami k-means i DBSCAN.
+Dla zbiorów danych z zadania 3 oblicz (zaimplementuj) wskaźniki:
+indeks Calińskiego&ndash;Harabasza, indeks sylwetki, indeks Daviesa&ndash;Bouldina, indeks Dunna, indeks Randa. Dla klasycznego algorytmu k-means zmień sposób wybierania początkowych centroidów. Pierwszy wybierz losowo, a każdy następny wybierz z jeszcze niewybranych punktów z prawdopodobieństwem proporcjonalnym do kwadratu odległości między tym punktem a najbliższym centroidem." />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://gregosiewicz.github.io/teaching/25-26zmaied/lab/lab-02/" /><meta property="og:image" content="https://gregosiewicz.github.io/logo.png" /><meta property="article:section" content="teaching" />
+<meta property="og:url" content="https://gregosiewicz.github.io/teaching/25-26zmaied/lab/lab-03/" /><meta property="og:image" content="https://gregosiewicz.github.io/logo.png" /><meta property="article:section" content="teaching" />
 
-<meta property="article:modified_time" content="2025-10-19T22:40:23+02:00" />
+<meta property="article:modified_time" content="2025-10-26T13:38:01+01:00" />
 
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:image" content="https://gregosiewicz.github.io/logo.png" /><meta name="twitter:title" content="Zaawansowane metody analizy i eksploracji danych | I2N | semestr zimowy 2025/2026"/>
-<meta name="twitter:description" content="Laboratorium 2 Zaimplementuj algorytm k-means w dwóch wersjach:
-bez użycia bibliotek numerycznych (czysty Python), z wykorzystaniem biblioteki numpy. Początkowy wybór centroidów ma być losowy z (dyskretnym) rozkładem jednostajnym. Następnie:
-Porównaj czas działania obu wersji dla 1000, 5000, 20000 i 100000 losowych punktów oraz 3, 5 i 10 klastrów, Stwórz funkcję prezentującą obliczone klastry w formie graficznej (matplotlib z wykresem typu scatter, każdy klaster innego koloru). (Dla chętnych) Przedstaw animację (wystarczy gif), prezentującą zmiany w klastrach w kolejnych krokach algorytmu."/>
+<meta name="twitter:description" content="Laboratorium 3 Zaimplementuj algorytm DBSCAN i przedstaw graficznie obliczone klastry dla losowych zbiorów danych.
+Dobierz odpowiednie zbiory danych, aby zobrazować różnice między algorytmami k-means i DBSCAN.
+Dla zbiorów danych z zadania 3 oblicz (zaimplementuj) wskaźniki:
+indeks Calińskiego&ndash;Harabasza, indeks sylwetki, indeks Daviesa&ndash;Bouldina, indeks Dunna, indeks Randa. Dla klasycznego algorytmu k-means zmień sposób wybierania początkowych centroidów. Pierwszy wybierz losowo, a każdy następny wybierz z jeszcze niewybranych punktów z prawdopodobieństwem proporcjonalnym do kwadratu odległości między tym punktem a najbliższym centroidem."/>
 <meta name="twitter:site" content="@xxxx"/>
 <meta name="application-name" content="Adam Gregosiewicz">
-<meta name="apple-mobile-web-app-title" content="Adam Gregosiewicz"><meta name="theme-color" data-light="#f8f8f8" data-dark="#252627" content="#f8f8f8"><meta name="msapplication-TileColor" content="#2376b7"><link rel="icon" href="/logo_white_circle.svg"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#2376b7"><link rel="canonical" href="https://gregosiewicz.github.io/teaching/25-26zmaied/lab/lab-02/" /><link rel="prev" href="https://gregosiewicz.github.io/teaching/25-26zmaied/lab/lab-03/" /><link rel="next" href="https://gregosiewicz.github.io/teaching/25-26zmaied/lab/lab-01/" /><link rel="stylesheet" href="/css/style.min.css">
+<meta name="apple-mobile-web-app-title" content="Adam Gregosiewicz"><meta name="theme-color" data-light="#f8f8f8" data-dark="#252627" content="#f8f8f8"><meta name="msapplication-TileColor" content="#2376b7"><link rel="icon" href="/logo_white_circle.svg"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#2376b7"><link rel="canonical" href="https://gregosiewicz.github.io/teaching/25-26zmaied/lab/lab-03/" /><link rel="next" href="https://gregosiewicz.github.io/teaching/25-26zmaied/lab/lab-02/" /><link rel="stylesheet" href="/css/style.min.css">
 
 
 <script type="application/ld+json">
@@ -42,9 +46,9 @@ Porównaj czas działania obu wersji dla 1000, 5000, 20000 i 100000 losowych pun
     "inLanguage": "en",
     "mainEntityOfPage": {
       "@type": "WebPage",
-      "@id": "https:\/\/gregosiewicz.github.io\/teaching\/25-26zmaied\/lab\/lab-02\/"
-    },"image": ["https:\/\/gregosiewicz.github.io\/images\/Apple-Devices-Preview.jpg"],"genre": "teaching","wordcount":  191 ,
-    "url": "https:\/\/gregosiewicz.github.io\/teaching\/25-26zmaied\/lab\/lab-02\/","dateModified": "2025-10-19T22:40:23+02:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
+      "@id": "https:\/\/gregosiewicz.github.io\/teaching\/25-26zmaied\/lab\/lab-03\/"
+    },"image": ["https:\/\/gregosiewicz.github.io\/images\/Apple-Devices-Preview.jpg"],"genre": "teaching","wordcount":  77 ,
+    "url": "https:\/\/gregosiewicz.github.io\/teaching\/25-26zmaied\/lab\/lab-03\/","dateModified": "2025-10-26T13:38:01+01:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
       "@type": "Organization",
       "name": "Adam Gregosiewicz","logo": {
           "@type": "ImageObject",
@@ -153,54 +157,35 @@ Porównaj czas działania obu wersji dla 1000, 5000, 20000 i 100000 losowych pun
       id="content"
       
       
-    ><h2 id="laboratorium-2">Laboratorium 2</h2>
+    ><h2 id="laboratorium-3">Laboratorium 3</h2>
 <ol>
 <li>
-<p>Zaimplementuj algorytm <code>k-means</code> w dwóch wersjach:</p>
+<p>Zaimplementuj algorytm <code>DBSCAN</code> i przedstaw graficznie obliczone
+klastry dla losowych zbiorów danych.</p>
+</li>
+<li>
+<p>Dobierz odpowiednie zbiory danych, aby zobrazować różnice między
+algorytmami <code>k-means</code> i <code>DBSCAN</code>.</p>
+</li>
+<li>
+<p>Dla zbiorów danych z zadania 3 oblicz (zaimplementuj) wskaźniki:</p>
 <ul>
-<li>bez użycia bibliotek numerycznych (czysty Python),</li>
-<li>z wykorzystaniem biblioteki <code>numpy</code>.</li>
-</ul>
-<p>Początkowy wybór centroidów ma być losowy z (dyskretnym) rozkładem
-jednostajnym. Następnie:</p>
-<ul>
-<li>Porównaj czas działania obu wersji dla <code>1000</code>, <code>5000</code>, <code>20000</code> i
-<code>100000</code> losowych punktów oraz <code>3</code>, <code>5</code> i <code>10</code> klastrów,</li>
-<li>Stwórz funkcję prezentującą obliczone klastry w formie graficznej
-(<code>matplotlib</code> z wykresem typu <code>scatter</code>, każdy klaster innego
-koloru).</li>
-<li>(Dla chętnych) Przedstaw animację (wystarczy <code>gif</code>), prezentującą
-zmiany w klastrach w kolejnych krokach algorytmu.</li>
+<li><a href="https://en.wikipedia.org/wiki/Calinski%E2%80%93Harabasz_index"target="_blank" rel="external nofollow noopener noreferrer">indeks
+Calińskiego&ndash;Harabasza</a>,</li>
+<li><a href="https://en.wikipedia.org/wiki/Silhouette_%28clustering%29"target="_blank" rel="external nofollow noopener noreferrer">indeks
+sylwetki</a>,</li>
+<li><a href="https://en.wikipedia.org/wiki/Davies%E2%80%93Bouldin_index"target="_blank" rel="external nofollow noopener noreferrer">indeks
+Daviesa&ndash;Bouldina</a>,</li>
+<li><a href="https://en.wikipedia.org/wiki/Dunn_index"target="_blank" rel="external nofollow noopener noreferrer">indeks Dunna</a>,</li>
+<li><a href="https://en.wikipedia.org/wiki/Rand_index"target="_blank" rel="external nofollow noopener noreferrer">indeks Randa</a>.</li>
 </ul>
 </li>
 <li>
-<p>Dla algorytmu z zadania 1 zmień sposób wybierania początkowych
-centroidów. Pierwszy wybierz losowo, a każdy następny wybierz z
-jeszcze niewybranych punktów z prawdopodobieństwem proporcjonalnym
-do kwadratu odległości między tym punktem a najbliższym centroidem.</p>
-</li>
-<li>
-<p>Zaimplementuj aglomeracyjny algorytm hierarchiczny w trzech
-wersjach odmienności:</p>
-<ul>
-<li>najbliższego sąsiada (<code>single linkage</code>),</li>
-<li>najdalszego sąsiada (<code>complete linkage</code>),</li>
-<li>średniej (<code>average linkage</code>).</li>
-</ul>
-<p>Następnie:</p>
-<ul>
-<li>Dla losowego zbioru punktów przedstaw graficznie (jak w zadaniu 1)
-obliczone klastry. Dla dużych zbiorów punktów ustaw sensowne
-ograniczenia liczby klastrów.</li>
-<li>Porównaj dla losowych danych i różnych funkcji odmienności
-różnicę w wyglądzie klastrów dla algorytmów <code>k-means</code> i
-hierarchicznego.</li>
-<li>(Dla chętnych) Przedstaw graficznie klastry w formie dendrogramu.</li>
-</ul>
-</li>
-<li>
-<p>Zaimplementuj algorytm <code>DBSCAN</code> i porównaj go z algorytmami z
-zadania 1 i 3.</p>
+<p>Dla klasycznego algorytmu <code>k-means</code> zmień sposób wybierania
+początkowych centroidów. Pierwszy wybierz losowo, a każdy następny
+wybierz z jeszcze niewybranych punktów z prawdopodobieństwem
+proporcjonalnym do kwadratu odległości między tym punktem a
+najbliższym centroidem.</p>
 </li>
 </ol>
 </div></article></main><footer class="footer">
