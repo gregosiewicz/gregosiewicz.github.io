@@ -1,0 +1,695 @@
+<!DOCTYPE html>
+<html itemscope itemtype="http://schema.org/WebPage" lang="en">
+  <head>
+    
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+    <meta name="robots" content="noodp" />
+    <title>Zaawansowane metody analizy i eksploracji danych | I2N | semestr zimowy 2025/2026 - Adam Gregosiewicz</title><meta name="author" content="Adam Gregosiewicz">
+<meta name="author-link" content="https://gregosiewicz.github.io">
+<meta name="description" content="Laboratorium 4 Pobierz dane train.csv z konkursu Titanic (Kaggle) i dokonaj ich prostej analizy.
+Zbadaj: procent braków w każdej kolumnie, liczbę unikalnych wartości w zmiennych kategorycznych, podstawowe statystyki dla zmiennych liczbowych. Wyczyść dane: usuń kolumny z brakami większymi niż 25%, uzupełnij brakujące wartości (średnia/mediana/moda), usuń duplikaty, wykryj i obsłuż wartości odstające. Zakoduj zmienne kategoryczne. Przeprowadź selekcję cech: usuń cechy prawie stałe, usuń silnie skorelowane ze sobą, usuń słabo skorelowane z etykietą (Survived)." /><meta itemprop="name" content="Zaawansowane metody analizy i eksploracji danych | I2N | semestr zimowy 2025/2026">
+<meta itemprop="description" content="Laboratorium 4 Pobierz dane train.csv z konkursu Titanic (Kaggle) i dokonaj ich prostej analizy.
+Zbadaj: procent braków w każdej kolumnie, liczbę unikalnych wartości w zmiennych kategorycznych, podstawowe statystyki dla zmiennych liczbowych. Wyczyść dane: usuń kolumny z brakami większymi niż 25%, uzupełnij brakujące wartości (średnia/mediana/moda), usuń duplikaty, wykryj i obsłuż wartości odstające. Zakoduj zmienne kategoryczne. Przeprowadź selekcję cech: usuń cechy prawie stałe, usuń silnie skorelowane ze sobą, usuń słabo skorelowane z etykietą (Survived).">
+<meta itemprop="dateModified" content="2025-11-16T13:11:57+01:00" />
+<meta itemprop="wordCount" content="968"><meta itemprop="image" content="https://gregosiewicz.github.io/logo.png" />
+<meta itemprop="keywords" content="" /><meta property="og:title" content="Zaawansowane metody analizy i eksploracji danych | I2N | semestr zimowy 2025/2026" />
+<meta property="og:description" content="Laboratorium 4 Pobierz dane train.csv z konkursu Titanic (Kaggle) i dokonaj ich prostej analizy.
+Zbadaj: procent braków w każdej kolumnie, liczbę unikalnych wartości w zmiennych kategorycznych, podstawowe statystyki dla zmiennych liczbowych. Wyczyść dane: usuń kolumny z brakami większymi niż 25%, uzupełnij brakujące wartości (średnia/mediana/moda), usuń duplikaty, wykryj i obsłuż wartości odstające. Zakoduj zmienne kategoryczne. Przeprowadź selekcję cech: usuń cechy prawie stałe, usuń silnie skorelowane ze sobą, usuń słabo skorelowane z etykietą (Survived)." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://gregosiewicz.github.io/teaching/25-26zmaied/lab/lab-04/" /><meta property="og:image" content="https://gregosiewicz.github.io/logo.png" /><meta property="article:section" content="teaching" />
+
+<meta property="article:modified_time" content="2025-11-16T13:11:57+01:00" />
+
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:image" content="https://gregosiewicz.github.io/logo.png" /><meta name="twitter:title" content="Zaawansowane metody analizy i eksploracji danych | I2N | semestr zimowy 2025/2026"/>
+<meta name="twitter:description" content="Laboratorium 4 Pobierz dane train.csv z konkursu Titanic (Kaggle) i dokonaj ich prostej analizy.
+Zbadaj: procent braków w każdej kolumnie, liczbę unikalnych wartości w zmiennych kategorycznych, podstawowe statystyki dla zmiennych liczbowych. Wyczyść dane: usuń kolumny z brakami większymi niż 25%, uzupełnij brakujące wartości (średnia/mediana/moda), usuń duplikaty, wykryj i obsłuż wartości odstające. Zakoduj zmienne kategoryczne. Przeprowadź selekcję cech: usuń cechy prawie stałe, usuń silnie skorelowane ze sobą, usuń słabo skorelowane z etykietą (Survived)."/>
+<meta name="twitter:site" content="@xxxx"/>
+<meta name="application-name" content="Adam Gregosiewicz">
+<meta name="apple-mobile-web-app-title" content="Adam Gregosiewicz"><meta name="theme-color" data-light="#f8f8f8" data-dark="#252627" content="#f8f8f8"><meta name="msapplication-TileColor" content="#2376b7"><link rel="icon" href="/logo_white_circle.svg"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#2376b7"><link rel="canonical" href="https://gregosiewicz.github.io/teaching/25-26zmaied/lab/lab-04/" /><link rel="next" href="https://gregosiewicz.github.io/teaching/25-26zmaied/lab/lab-03/" /><link rel="stylesheet" href="/css/style.min.css">
+
+
+<script type="application/ld+json">
+  {
+    "@context": "http://schema.org",
+    "@type": "BlogPosting",
+    "headline": "Zaawansowane metody analizy i eksploracji danych | I2N | semestr zimowy 2025/2026",
+    "inLanguage": "en",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https:\/\/gregosiewicz.github.io\/teaching\/25-26zmaied\/lab\/lab-04\/"
+    },"image": ["https:\/\/gregosiewicz.github.io\/images\/Apple-Devices-Preview.jpg"],"genre": "teaching","wordcount":  968 ,
+    "url": "https:\/\/gregosiewicz.github.io\/teaching\/25-26zmaied\/lab\/lab-04\/","dateModified": "2025-11-16T13:11:57+01:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
+      "@type": "Organization",
+      "name": "Adam Gregosiewicz","logo": {
+          "@type": "ImageObject",
+          "url": "https:\/\/gregosiewicz.github.io\/images\/ag.jpg",
+          "width":  400 ,
+          "height":  400 
+        }},"author": {
+        "@type": "Person",
+        "name": "Adam Gregosiewicz"
+      },"description": ""
+  }
+  </script></head>
+  <body data-header-desktop="sticky" data-header-mobile="normal"><script>(window.localStorage?.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('auto' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'auto' === 'dark')) && document.body.setAttribute('data-theme', 'dark');</script><div class="wrapper"><header class="desktop animate__faster" id="header-desktop">
+  <div class="header-wrapper">
+    <div class="header-title">
+      <a href="/" title="Adam Gregosiewicz"><img
+    class="lazyload logo"
+    src="/svg/loading.min.svg"
+    data-src="/logo.svg"
+    data-srcset="/logo.svg, /logo.svg 1.5x, /logo.svg 2x"
+    data-sizes="auto"
+    alt="Adam Gregosiewicz"
+    title="Adam Gregosiewicz"/><span class="header-title-text">Adam Gregosiewicz</span></a><span class="header-subtitle"></span></div>
+    <nav>
+      <ul class="menu"><li class="menu-item">
+              <a
+                class="menu-link"
+                href="/"
+                
+                
+              >Home</a></li><li class="menu-item">
+              <a
+                class="menu-link"
+                href="/publications/"
+                
+                
+              >Publications</a></li><li class="menu-item">
+              <a
+                class="menu-link"
+                href="/talks/"
+                
+                
+              >Talks</a></li><li class="menu-item">
+              <a
+                class="menu-link"
+                href="/teaching/"
+                
+                
+              >Teaching</a></li><li class="menu-item delimiter"></li><li class="menu-item theme-switch" title="Switch Theme"><i data-svg-src="/switch.svg" aria-hidden="true"></i>
+        </li>
+      </ul>
+    </nav>
+  </div>
+</header><header class="mobile animate__faster" id="header-mobile">
+  <div class="header-container">
+    <div class="header-wrapper">
+      <div class="header-title">
+        <a href="/" title="Adam Gregosiewicz"><img
+    class="lazyload logo"
+    src="/svg/loading.min.svg"
+    data-src="/logo.svg"
+    data-srcset="/logo.svg, /logo.svg 1.5x, /logo.svg 2x"
+    data-sizes="auto"
+    alt="/logo.svg"
+    title="/logo.svg"/><span class="header-title-text">Adam Gregosiewicz</span></a><span class="header-subtitle"></span></div>
+      <div class="menu-toggle" id="menu-toggle-mobile">
+        <span></span><span></span><span></span>
+      </div>
+    </div>
+    <nav>
+      <ul class="menu" id="menu-mobile"><li
+              class="menu-item"
+            ><a
+                  class="menu-link"
+                  href="/"
+                  
+                  
+                >Home</a></li><li
+              class="menu-item"
+            ><a
+                  class="menu-link"
+                  href="/publications/"
+                  
+                  
+                >Publications</a></li><li
+              class="menu-item"
+            ><a
+                  class="menu-link"
+                  href="/talks/"
+                  
+                  
+                >Talks</a></li><li
+              class="menu-item"
+            ><a
+                  class="menu-link"
+                  href="/teaching/"
+                  
+                  
+                >Teaching</a></li><li class="menu-item theme-switch" title="Switch Theme"><i data-svg-src="/switch.svg" aria-hidden="true"></i>
+        </li></ul>
+    </nav>
+  </div>
+</header><main class="container" data-page-style="normal"><article class="page single special">
+    <div class="header"><h1 class="single-title animate__animated animate__pulse animate__faster">Zaawansowane metody analizy i eksploracji danych | I2N | semestr zimowy 2025/2026</h1></div><div
+      class="content"
+      id="content"
+      
+      
+    ><h2 id="laboratorium-4">Laboratorium 4</h2>
+<ol>
+<li>
+<p>Pobierz dane <code>train.csv</code> z konkursu
+<a href="https://www.kaggle.com/competitions/titanic/"target="_blank" rel="external nofollow noopener noreferrer">Titanic</a> (Kaggle) i
+dokonaj ich prostej analizy.</p>
+<ul>
+<li>Zbadaj:
+<ul>
+<li>procent braków w każdej kolumnie,</li>
+<li>liczbę unikalnych wartości w zmiennych kategorycznych,</li>
+<li>podstawowe statystyki dla zmiennych liczbowych.</li>
+</ul>
+</li>
+<li>Wyczyść dane:
+<ul>
+<li>usuń kolumny z brakami większymi niż 25%,</li>
+<li>uzupełnij brakujące wartości (średnia/mediana/moda),</li>
+<li>usuń duplikaty,</li>
+<li>wykryj i obsłuż wartości odstające.</li>
+</ul>
+</li>
+<li>Zakoduj zmienne kategoryczne.</li>
+<li>Przeprowadź selekcję cech:
+<ul>
+<li>usuń cechy prawie stałe,</li>
+<li>usuń silnie skorelowane ze sobą,</li>
+<li>usuń słabo skorelowane z etykietą (Survived).</li>
+</ul>
+</li>
+<li>Wytrenuj prosty model klasyfikacyjny i oceń go
+na zbiorze testowym (<code>test.csv</code>).</li>
+</ul>
+<p>Można wykorzystać poniższy szablon.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">  1
+</span><span class="lnt">  2
+</span><span class="lnt">  3
+</span><span class="lnt">  4
+</span><span class="lnt">  5
+</span><span class="lnt">  6
+</span><span class="lnt">  7
+</span><span class="lnt">  8
+</span><span class="lnt">  9
+</span><span class="lnt"> 10
+</span><span class="lnt"> 11
+</span><span class="lnt"> 12
+</span><span class="lnt"> 13
+</span><span class="lnt"> 14
+</span><span class="lnt"> 15
+</span><span class="lnt"> 16
+</span><span class="lnt"> 17
+</span><span class="lnt"> 18
+</span><span class="lnt"> 19
+</span><span class="lnt"> 20
+</span><span class="lnt"> 21
+</span><span class="lnt"> 22
+</span><span class="lnt"> 23
+</span><span class="lnt"> 24
+</span><span class="lnt"> 25
+</span><span class="lnt"> 26
+</span><span class="lnt"> 27
+</span><span class="lnt"> 28
+</span><span class="lnt"> 29
+</span><span class="lnt"> 30
+</span><span class="lnt"> 31
+</span><span class="lnt"> 32
+</span><span class="lnt"> 33
+</span><span class="lnt"> 34
+</span><span class="lnt"> 35
+</span><span class="lnt"> 36
+</span><span class="lnt"> 37
+</span><span class="lnt"> 38
+</span><span class="lnt"> 39
+</span><span class="lnt"> 40
+</span><span class="lnt"> 41
+</span><span class="lnt"> 42
+</span><span class="lnt"> 43
+</span><span class="lnt"> 44
+</span><span class="lnt"> 45
+</span><span class="lnt"> 46
+</span><span class="lnt"> 47
+</span><span class="lnt"> 48
+</span><span class="lnt"> 49
+</span><span class="lnt"> 50
+</span><span class="lnt"> 51
+</span><span class="lnt"> 52
+</span><span class="lnt"> 53
+</span><span class="lnt"> 54
+</span><span class="lnt"> 55
+</span><span class="lnt"> 56
+</span><span class="lnt"> 57
+</span><span class="lnt"> 58
+</span><span class="lnt"> 59
+</span><span class="lnt"> 60
+</span><span class="lnt"> 61
+</span><span class="lnt"> 62
+</span><span class="lnt"> 63
+</span><span class="lnt"> 64
+</span><span class="lnt"> 65
+</span><span class="lnt"> 66
+</span><span class="lnt"> 67
+</span><span class="lnt"> 68
+</span><span class="lnt"> 69
+</span><span class="lnt"> 70
+</span><span class="lnt"> 71
+</span><span class="lnt"> 72
+</span><span class="lnt"> 73
+</span><span class="lnt"> 74
+</span><span class="lnt"> 75
+</span><span class="lnt"> 76
+</span><span class="lnt"> 77
+</span><span class="lnt"> 78
+</span><span class="lnt"> 79
+</span><span class="lnt"> 80
+</span><span class="lnt"> 81
+</span><span class="lnt"> 82
+</span><span class="lnt"> 83
+</span><span class="lnt"> 84
+</span><span class="lnt"> 85
+</span><span class="lnt"> 86
+</span><span class="lnt"> 87
+</span><span class="lnt"> 88
+</span><span class="lnt"> 89
+</span><span class="lnt"> 90
+</span><span class="lnt"> 91
+</span><span class="lnt"> 92
+</span><span class="lnt"> 93
+</span><span class="lnt"> 94
+</span><span class="lnt"> 95
+</span><span class="lnt"> 96
+</span><span class="lnt"> 97
+</span><span class="lnt"> 98
+</span><span class="lnt"> 99
+</span><span class="lnt">100
+</span><span class="lnt">101
+</span><span class="lnt">102
+</span><span class="lnt">103
+</span><span class="lnt">104
+</span><span class="lnt">105
+</span><span class="lnt">106
+</span><span class="lnt">107
+</span><span class="lnt">108
+</span><span class="lnt">109
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Tuple</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">train_test_split</span>
+</span></span><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">sklearn.linear_model</span> <span class="kn">import</span> <span class="n">LogisticRegression</span>
+</span></span><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">accuracy_score</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">load_data</span><span class="p">(</span><span class="n">path</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="k">pass</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">basic_exploration</span><span class="p">(</span><span class="n">df</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;&#34;&#34;
+</span></span></span><span class="line"><span class="cl"><span class="s2">    Wypisz podstawowe informacje o jakości danych:
+</span></span></span><span class="line"><span class="cl"><span class="s2">    - info() z typami i liczbą niepustych wartości,
+</span></span></span><span class="line"><span class="cl"><span class="s2">    - procent braków w każdej kolumnie,
+</span></span></span><span class="line"><span class="cl"><span class="s2">    - liczba unikalnych wartości w zmiennych kategorycznych,
+</span></span></span><span class="line"><span class="cl"><span class="s2">    - podstawowe statystyki opisowe dla zmiennych liczbowych.
+</span></span></span><span class="line"><span class="cl"><span class="s2">    &#34;&#34;&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">pass</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">clean_data</span><span class="p">(</span><span class="n">df</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">,</span> <span class="n">target_col</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&#34;Survived&#34;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="k">pass</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">encode_categoricals</span><span class="p">(</span><span class="n">df</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">,</span> <span class="n">target_col</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&#34;Survived&#34;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="k">pass</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">feature_selection</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">    <span class="n">df</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="n">target_col</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&#34;Survived&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="n">min_corr_with_target</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">0.02</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="n">max_corr_between_features</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">0.95</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl"><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;&#34;&#34;
+</span></span></span><span class="line"><span class="cl"><span class="s2">    Selekcja cech:
+</span></span></span><span class="line"><span class="cl"><span class="s2">    - usuń cechy słabo skorelowane z etykietą,
+</span></span></span><span class="line"><span class="cl"><span class="s2">    - dla każdej pary cech silnie skorelowanych usuń jedną z nich.
+</span></span></span><span class="line"><span class="cl"><span class="s2">    &#34;&#34;&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">pass</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">train_and_evaluate</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">    <span class="n">df</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="n">target_col</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&#34;Survived&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="n">test_size</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">0.2</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="n">random_state</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">42</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl"><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Tuple</span><span class="p">[</span><span class="n">LogisticRegression</span><span class="p">,</span> <span class="nb">float</span><span class="p">]:</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;&#34;&#34;
+</span></span></span><span class="line"><span class="cl"><span class="s2">    Podziel dane na treningowe i testowe, wytrenuj model i policz dokładność.
+</span></span></span><span class="line"><span class="cl"><span class="s2">    &#34;&#34;&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">pass</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">train_final_model</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">    <span class="n">df</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="n">target_col</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&#34;Survived&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">LogisticRegression</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;&#34;&#34;
+</span></span></span><span class="line"><span class="cl"><span class="s2">    Trenuje model na CAŁYM zbiorze treningowym (bez podziału na train/test),
+</span></span></span><span class="line"><span class="cl"><span class="s2">    żeby potem wykorzystać go do predykcji na test.csv.
+</span></span></span><span class="line"><span class="cl"><span class="s2">    &#34;&#34;&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">pass</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">predict_test_and_save_submission</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">    <span class="n">model</span><span class="p">:</span> <span class="n">LogisticRegression</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="n">feature_cols</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="n">test_path</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&#34;test.csv&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="n">submission_path</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&#34;submission.csv&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="n">target_col</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&#34;Survived&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;&#34;&#34;
+</span></span></span><span class="line"><span class="cl"><span class="s2">    Wczytuje test.csv z Kaggle, wykonuje te same kroki przetwarzania co na train
+</span></span></span><span class="line"><span class="cl"><span class="s2">    (cleaning + encoding), dopasowuje kolumny do feature_cols
+</span></span></span><span class="line"><span class="cl"><span class="s2">    i zapisuje plik submission.csv.
+</span></span></span><span class="line"><span class="cl"><span class="s2">
+</span></span></span><span class="line"><span class="cl"><span class="s2">    W submission.csv muszą być dokładnie dwie kolumny:
+</span></span></span><span class="line"><span class="cl"><span class="s2">    - PassengerId
+</span></span></span><span class="line"><span class="cl"><span class="s2">    - Survived (0 lub 1)
+</span></span></span><span class="line"><span class="cl"><span class="s2">    &#34;&#34;&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">pass</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
+</span></span><span class="line"><span class="cl">    <span class="n">data_path</span> <span class="o">=</span> <span class="s2">&#34;train.csv&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="n">df</span> <span class="o">=</span> <span class="n">load_data</span><span class="p">(</span><span class="n">data_path</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="n">basic_exploration</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="n">df_clean</span> <span class="o">=</span> <span class="n">clean_data</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">target_col</span><span class="o">=</span><span class="s2">&#34;Survived&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="n">df_encoded</span> <span class="o">=</span> <span class="n">encode_categoricals</span><span class="p">(</span><span class="n">df_clean</span><span class="p">,</span> <span class="n">target_col</span><span class="o">=</span><span class="s2">&#34;Survived&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="n">df_selected</span> <span class="o">=</span> <span class="n">feature_selection</span><span class="p">(</span><span class="n">df_encoded</span><span class="p">,</span> <span class="n">target_col</span><span class="o">=</span><span class="s2">&#34;Survived&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="n">model</span><span class="p">,</span> <span class="n">test_acc</span> <span class="o">=</span> <span class="n">train_and_evaluate</span><span class="p">(</span><span class="n">df_selected</span><span class="p">,</span> <span class="n">target_col</span><span class="o">=</span><span class="s2">&#34;Survived&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&#34;</span><span class="se">\n</span><span class="s2">Dokładność modelu na zbiorze testowym: </span><span class="si">{</span><span class="n">test_acc</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2">&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&#34;__main__&#34;</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="n">main</span><span class="p">()</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p>Porównaj wyniki klasyfikatora <code>KNN</code> dla różnego typu skalowania
+danych.</p>
+<ul>
+<li>Wczytaj zbiór Iris z <code>sklearn</code>. Ogranicz się do dwóch klas:
+<ul>
+<li>Iris-versicolor</li>
+<li>Iris-virginica</li>
+</ul>
+</li>
+<li>Porównaj działanie klasyfikatora KNN (k=5) dla trzech wariantów:
+<ul>
+<li>bez skalowania,</li>
+<li>ze standaryzacją,</li>
+<li>z normalizacją.</li>
+</ul>
+</li>
+<li>Użyj walidacji krzyżowej (np. StratifiedKFold, 5-krotnej) i oblicz:
+<ul>
+<li>średnią dokładność,</li>
+<li>odchylenie standardowe dokładności
+dla każdego wariantu skalowania.</li>
+</ul>
+</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+</span></span><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Dict</span><span class="p">,</span> <span class="n">Tuple</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">sklearn.datasets</span> <span class="kn">import</span> <span class="n">load_iris</span>
+</span></span><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">StratifiedKFold</span><span class="p">,</span> <span class="n">cross_val_score</span>
+</span></span><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">sklearn.neighbors</span> <span class="kn">import</span> <span class="n">KNeighborsClassifier</span>
+</span></span><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">sklearn.pipeline</span> <span class="kn">import</span> <span class="n">make_pipeline</span>
+</span></span><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">sklearn.preprocessing</span> <span class="kn">import</span> <span class="n">StandardScaler</span><span class="p">,</span> <span class="n">Normalizer</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">load_iris_binary</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="n">Tuple</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">]:</span>
+</span></span><span class="line"><span class="cl">    <span class="k">pass</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">evaluate_knn_with_preprocessing</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">    <span class="n">X</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="n">y</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="n">n_neighbors</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">5</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="n">n_splits</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">5</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="n">random_state</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">42</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl"><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Tuple</span><span class="p">[</span><span class="nb">float</span><span class="p">,</span> <span class="nb">float</span><span class="p">]]:</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;&#34;&#34;
+</span></span></span><span class="line"><span class="cl"><span class="s2">    Porównuje działanie KNN dla trzech wariantów przetwarzania cech:
+</span></span></span><span class="line"><span class="cl"><span class="s2">    - brak skalowania,
+</span></span></span><span class="line"><span class="cl"><span class="s2">    - standaryzacja,
+</span></span></span><span class="line"><span class="cl"><span class="s2">    - normalizacja.
+</span></span></span><span class="line"><span class="cl"><span class="s2">
+</span></span></span><span class="line"><span class="cl"><span class="s2">    Używa walidacji krzyżowej StratifiedKFold.
+</span></span></span><span class="line"><span class="cl"><span class="s2">
+</span></span></span><span class="line"><span class="cl"><span class="s2">    Zwraca słownik:
+</span></span></span><span class="line"><span class="cl"><span class="s2">        nazwa_wariantu -&gt; (średnia_dokładność, odchylenie_standardowe)
+</span></span></span><span class="line"><span class="cl"><span class="s2">    &#34;&#34;&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">pass</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
+</span></span><span class="line"><span class="cl">    <span class="k">pass</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&#34;__main__&#34;</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="n">main</span><span class="p">()</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p>Dokonaj redukcji wymiaru (PCA) i wizualizacji zbioru Iris.</p>
+<ul>
+<li>Standaryzuj wszystkie cechy.</li>
+<li>Oblicz macierz kowariancji, jej wartości i wektory własne
+(np.linalg.eig).</li>
+<li>Posortuj składowe główne malejąco wg wartości własnych.</li>
+<li>Oblicz udział każdej składowej w całkowitej wariancji oraz
+wariancję skumulowaną.</li>
+<li>Narysuj wykres osypiska.</li>
+<li>Zredukuj dane do 2 składowych głównych (ręcznie) i narysuj wykres
+punktowy (kolorując wg gatunku).</li>
+<li>Porównaj wyniki z <code>sklearn.decomposition.PCA</code>.</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span><span class="lnt">44
+</span><span class="lnt">45
+</span><span class="lnt">46
+</span><span class="lnt">47
+</span><span class="lnt">48
+</span><span class="lnt">49
+</span><span class="lnt">50
+</span><span class="lnt">51
+</span><span class="lnt">52
+</span><span class="lnt">53
+</span><span class="lnt">54
+</span><span class="lnt">55
+</span><span class="lnt">56
+</span><span class="lnt">57
+</span><span class="lnt">58
+</span><span class="lnt">59
+</span><span class="lnt">60
+</span><span class="lnt">61
+</span><span class="lnt">62
+</span><span class="lnt">63
+</span><span class="lnt">64
+</span><span class="lnt">65
+</span><span class="lnt">66
+</span><span class="lnt">67
+</span><span class="lnt">68
+</span><span class="lnt">69
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+</span></span><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Tuple</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">sklearn.datasets</span> <span class="kn">import</span> <span class="n">load_iris</span>
+</span></span><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">sklearn.preprocessing</span> <span class="kn">import</span> <span class="n">StandardScaler</span>
+</span></span><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">sklearn.decomposition</span> <span class="kn">import</span> <span class="n">PCA</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">load_and_standardize_iris</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="n">Tuple</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="nb">list</span><span class="p">,</span> <span class="nb">list</span><span class="p">]:</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;&#34;&#34;
+</span></span></span><span class="line"><span class="cl"><span class="s2">    Wczytuje zbiór Iris, zwraca:
+</span></span></span><span class="line"><span class="cl"><span class="s2">    - X_std: standaryzowane cechy,
+</span></span></span><span class="line"><span class="cl"><span class="s2">    - y: wektor etykiet,
+</span></span></span><span class="line"><span class="cl"><span class="s2">    - feature_names: nazwy cech,
+</span></span></span><span class="line"><span class="cl"><span class="s2">    - target_names: nazwy klas.
+</span></span></span><span class="line"><span class="cl"><span class="s2">    &#34;&#34;&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">pass</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">manual_pca</span><span class="p">(</span><span class="n">X_std</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Tuple</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">]:</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;&#34;&#34;
+</span></span></span><span class="line"><span class="cl"><span class="s2">    Ręczne PCA.
+</span></span></span><span class="line"><span class="cl"><span class="s2">
+</span></span></span><span class="line"><span class="cl"><span class="s2">    Zwraca:
+</span></span></span><span class="line"><span class="cl"><span class="s2">    - eig_vals_sorted: posortowane wartości własne (wektor długości n_features),
+</span></span></span><span class="line"><span class="cl"><span class="s2">    - eig_vecs_sorted: odpowiadające im wektory własne (macierz n_features x n_features),
+</span></span></span><span class="line"><span class="cl"><span class="s2">    - explained_var_ratio: udział każdej składowej w wariancji.
+</span></span></span><span class="line"><span class="cl"><span class="s2">    &#34;&#34;&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">pass</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">transform_to_pcs</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">    <span class="n">X_std</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="n">eig_vecs_sorted</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="n">n_components</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">2</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl"><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;&#34;&#34;
+</span></span></span><span class="line"><span class="cl"><span class="s2">    Rzutuje standaryzowane dane X_std na przestrzeń pierwszych n_components
+</span></span></span><span class="line"><span class="cl"><span class="s2">    składowych głównych.
+</span></span></span><span class="line"><span class="cl"><span class="s2">
+</span></span></span><span class="line"><span class="cl"><span class="s2">    Zwraca:
+</span></span></span><span class="line"><span class="cl"><span class="s2">    - X_pca: macierz (n_samples, n_components)
+</span></span></span><span class="line"><span class="cl"><span class="s2">    &#34;&#34;&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">pass</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">plot_scree</span><span class="p">(</span><span class="n">explained_var_ratio</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="k">pass</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">plot_pca_2d</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">    <span class="n">X_pca</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="n">y</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="n">target_names</span><span class="p">:</span> <span class="nb">list</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl"><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="k">pass</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">compare_with_sklearn_pca</span><span class="p">(</span><span class="n">X_std</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">n_components</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">2</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="k">pass</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
+</span></span><span class="line"><span class="cl">    <span class="k">pass</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&#34;__main__&#34;</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="n">main</span><span class="p">()</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div></li>
+</ol>
+</div></article></main><footer class="footer">
+    <div class="footer-container"><div class="footer-line powered">Powered by <a href="https://gohugo.io/" target="_blank" rel="external nofollow noopener noreferrer" title="Hugo 0.123.7">Hugo</a> | Theme - <a href="https://github.com/hugo-fixit/FixIt" target="_blank" rel="external" title="FixIt v0.2.17-RC">FixIt</a>
+        </div><div class="footer-line copyright" itemscope itemtype="http://schema.org/CreativeWork"><i class="fa-regular fa-copyright fa-fw" aria-hidden="true"></i>
+            <span itemprop="copyrightYear">2010-2025</span><span class="author" itemprop="copyrightHolder">
+              <a href="https://gregosiewicz.github.io"target="_blank" rel="external nofollow noopener noreferrer">Adam Gregosiewicz</a></span><span class="license footer-divider"><a rel="license external nofollow noopener noreferrer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span></div><div class="footer-line statistics"></div></div>
+  </footer></div><div class="widgets"><div id="mask"></div><div class="reading-progress-bar" style="left: 0;top: 0;--bg-progress: #000;--bg-progress-dark: #fff;"></div><noscript>
+    <div class="noscript-warning">Theme FixIt works best with JavaScript enabled.</div>
+  </noscript>
+</div><link rel="stylesheet" href="/lib/katex/katex.min.css"><script src="/lib/lazysizes/lazysizes.min.js" async defer></script><script src="/lib/katex/katex.min.js" defer></script><script src="/lib/katex/auto-render.min.js" defer></script><script src="/lib/katex/copy-tex.min.js" defer></script><script src="/lib/katex/mhchem.min.js" defer></script><script>window.config={"autoBookmark":true,"code":{"copyTitle":"Copy to clipboard","maxShownLines":10},"comment":{"enable":false},"math":{"delimiters":[{"display":true,"left":"$$","right":"$$"},{"display":true,"left":"\\[","right":"\\]"},{"display":true,"left":"\\begin{equation}","right":"\\end{equation}"},{"display":true,"left":"\\begin{equation*}","right":"\\end{equation*}"},{"display":true,"left":"\\begin{align}","right":"\\end{align}"},{"display":true,"left":"\\begin{align*}","right":"\\end{align*}"},{"display":true,"left":"\\begin{alignat}","right":"\\end{alignat}"},{"display":true,"left":"\\begin{alignat*}","right":"\\end{alignat*}"},{"display":true,"left":"\\begin{gather}","right":"\\end{gather}"},{"display":true,"left":"\\begin{CD}","right":"\\end{CD}"},{"display":false,"left":"$","right":"$"},{"display":false,"left":"\\(","right":"\\)"}],"strict":false}};</script><script src="/js/theme.min.js" defer></script><script>
+      window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js', new Date());
+      gtag('config', 'G-D6NS0QSV1X', { 'anonymize_ip': true });
+    </script><script src="https://www.googletagmanager.com/gtag/js?id=G-D6NS0QSV1X" async></script></body>
+</html>

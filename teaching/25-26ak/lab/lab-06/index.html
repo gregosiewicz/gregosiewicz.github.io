@@ -11,7 +11,7 @@
 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 56 57 58 59 60 61 62 63 64 65 66 67 68 69 70 71 72 73 74 75 76 77 78 79 80 81 82 83 84 85 86 87 88 89 90 91 92 93 94 95 96 97 98 99 100 101 102 103 104 105 106 107 108 109 from typing import List, Sequence # S-BOX (Table 4) SBOX: List[int] = [ ] # Inverse S-BOX (Table 6) INV_SBOX: List[int] = [ ] # Figure 1 def _bytes_to_state(block: bytes) -&gt; List[List[int]]: pass # Figure 1 def _state_to_bytes(state: Sequence[Sequence[int]]) -&gt; bytes: pass # Formula (5." /><meta itemprop="name" content="Algorytmy kryptograficzne | Laboratorium 6">
 <meta itemprop="description" content="Uzupełnnij implementację kryptosystemu AES. Wykorzystaj wyłącznie oficjalny standard FIPS-197.
 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 56 57 58 59 60 61 62 63 64 65 66 67 68 69 70 71 72 73 74 75 76 77 78 79 80 81 82 83 84 85 86 87 88 89 90 91 92 93 94 95 96 97 98 99 100 101 102 103 104 105 106 107 108 109 from typing import List, Sequence # S-BOX (Table 4) SBOX: List[int] = [ ] # Inverse S-BOX (Table 6) INV_SBOX: List[int] = [ ] # Figure 1 def _bytes_to_state(block: bytes) -&gt; List[List[int]]: pass # Figure 1 def _state_to_bytes(state: Sequence[Sequence[int]]) -&gt; bytes: pass # Formula (5.">
-<meta itemprop="dateModified" content="2025-11-12T21:09:18+01:00" />
+<meta itemprop="dateModified" content="2025-11-12T21:10:33+01:00" />
 <meta itemprop="wordCount" content="352"><meta itemprop="image" content="https://gregosiewicz.github.io/logo.png" />
 <meta itemprop="keywords" content="" /><meta property="og:title" content="Algorytmy kryptograficzne | Laboratorium 6" />
 <meta property="og:description" content="Uzupełnnij implementację kryptosystemu AES. Wykorzystaj wyłącznie oficjalny standard FIPS-197.
@@ -19,7 +19,7 @@
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://gregosiewicz.github.io/teaching/25-26ak/lab/lab-06/" /><meta property="og:image" content="https://gregosiewicz.github.io/logo.png" /><meta property="article:section" content="teaching" />
 
-<meta property="article:modified_time" content="2025-11-12T21:09:18+01:00" />
+<meta property="article:modified_time" content="2025-11-12T21:10:33+01:00" />
 
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:image" content="https://gregosiewicz.github.io/logo.png" /><meta name="twitter:title" content="Algorytmy kryptograficzne | Laboratorium 6"/>
@@ -40,7 +40,7 @@
       "@type": "WebPage",
       "@id": "https:\/\/gregosiewicz.github.io\/teaching\/25-26ak\/lab\/lab-06\/"
     },"image": ["https:\/\/gregosiewicz.github.io\/images\/Apple-Devices-Preview.jpg"],"genre": "teaching","wordcount":  352 ,
-    "url": "https:\/\/gregosiewicz.github.io\/teaching\/25-26ak\/lab\/lab-06\/","dateModified": "2025-11-12T21:09:18+01:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
+    "url": "https:\/\/gregosiewicz.github.io\/teaching\/25-26ak\/lab\/lab-06\/","dateModified": "2025-11-12T21:10:33+01:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
       "@type": "Organization",
       "name": "Adam Gregosiewicz","logo": {
           "@type": "ImageObject",
