@@ -5,50 +5,54 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
     <meta name="robots" content="noodp" />
-    <title>Zaawansowane metody analizy i eksploracji danych | I2N | semestr zimowy 2025/2026 - Adam Gregosiewicz</title><meta name="author" content="Adam Gregosiewicz">
+    <title>Algorytmy kryptograficzne | Laboratorium 10 - Adam Gregosiewicz</title><meta name="author" content="Adam Gregosiewicz">
 <meta name="author-link" content="https://gregosiewicz.github.io">
-<meta name="description" content="Laboratorium 3 Zaimplementuj algorytm DBSCAN i przedstaw graficznie obliczone klastry dla losowych zbiorów danych.
-Dobierz odpowiednie zbiory danych, aby zobrazować różnice między algorytmami k-means i DBSCAN.
-Dla zbiorów danych z zadania 3 oblicz (zaimplementuj) wskaźniki:
-indeks Calińskiego&ndash;Harabasza, indeks sylwetki, indeks Daviesa&ndash;Bouldina, indeks Dunna, indeks Randa. Dla klasycznego algorytmu k-means zmień sposób wybierania początkowych centroidów. Pierwszy wybierz losowo, a każdy następny wybierz z jeszcze niewybranych punktów z prawdopodobieństwem proporcjonalnym do kwadratu odległości między tym punktem a najbliższym centroidem." /><meta itemprop="name" content="Zaawansowane metody analizy i eksploracji danych | I2N | semestr zimowy 2025/2026">
-<meta itemprop="description" content="Laboratorium 3 Zaimplementuj algorytm DBSCAN i przedstaw graficznie obliczone klastry dla losowych zbiorów danych.
-Dobierz odpowiednie zbiory danych, aby zobrazować różnice między algorytmami k-means i DBSCAN.
-Dla zbiorów danych z zadania 3 oblicz (zaimplementuj) wskaźniki:
-indeks Calińskiego&ndash;Harabasza, indeks sylwetki, indeks Daviesa&ndash;Bouldina, indeks Dunna, indeks Randa. Dla klasycznego algorytmu k-means zmień sposób wybierania początkowych centroidów. Pierwszy wybierz losowo, a każdy następny wybierz z jeszcze niewybranych punktów z prawdopodobieństwem proporcjonalnym do kwadratu odległości między tym punktem a najbliższym centroidem.">
-<meta itemprop="dateModified" content="2025-10-26T13:38:01+01:00" />
-<meta itemprop="wordCount" content="77"><meta itemprop="image" content="https://gregosiewicz.github.io/logo.png" />
-<meta itemprop="keywords" content="" /><meta property="og:title" content="Zaawansowane metody analizy i eksploracji danych | I2N | semestr zimowy 2025/2026" />
-<meta property="og:description" content="Laboratorium 3 Zaimplementuj algorytm DBSCAN i przedstaw graficznie obliczone klastry dla losowych zbiorów danych.
-Dobierz odpowiednie zbiory danych, aby zobrazować różnice między algorytmami k-means i DBSCAN.
-Dla zbiorów danych z zadania 3 oblicz (zaimplementuj) wskaźniki:
-indeks Calińskiego&ndash;Harabasza, indeks sylwetki, indeks Daviesa&ndash;Bouldina, indeks Dunna, indeks Randa. Dla klasycznego algorytmu k-means zmień sposób wybierania początkowych centroidów. Pierwszy wybierz losowo, a każdy następny wybierz z jeszcze niewybranych punktów z prawdopodobieństwem proporcjonalnym do kwadratu odległości między tym punktem a najbliższym centroidem." />
+<meta name="description" content="Zaimplementuj prostą wersję kryptosystemu ElGamala, umożliwiającą generowanie klucza, szyfrowanie i deszyfrowanie wiadomości.
+Dane: $$ \begin{aligned} p &amp;= 115792089237316195423570985008687907853269984665640564039457584007908834671663,\\ g &amp;= 2,\\ x &amp;= 987654321098765432109876543210987654321,\\ m &amp;= 123456789012345678901234567890,\\ k &amp;= 123456789012345678901234567890123456789. \end{aligned} $$
+Wyznacz klucz publiczny. Zaszyfruj wiadomość $m$ jako $(y_1,y_2)$. Odszufruj szyfrogram $(y_1,y_2)$. Zaimplementuj atak na problem logarytmu dyskretnego algorytmem Shanksa (baby-step giant-step).
+Dane: $$ p=2147483647,\qquad g=5,\qquad a=723883728. $$
+Znajdź $x\in {0,1,\dots,p-1}$ spełniające równość $$ g^x \equiv a \pmod p." /><meta itemprop="name" content="Algorytmy kryptograficzne | Laboratorium 10">
+<meta itemprop="description" content="Zaimplementuj prostą wersję kryptosystemu ElGamala, umożliwiającą generowanie klucza, szyfrowanie i deszyfrowanie wiadomości.
+Dane: $$ \begin{aligned} p &amp;= 115792089237316195423570985008687907853269984665640564039457584007908834671663,\\ g &amp;= 2,\\ x &amp;= 987654321098765432109876543210987654321,\\ m &amp;= 123456789012345678901234567890,\\ k &amp;= 123456789012345678901234567890123456789. \end{aligned} $$
+Wyznacz klucz publiczny. Zaszyfruj wiadomość $m$ jako $(y_1,y_2)$. Odszufruj szyfrogram $(y_1,y_2)$. Zaimplementuj atak na problem logarytmu dyskretnego algorytmem Shanksa (baby-step giant-step).
+Dane: $$ p=2147483647,\qquad g=5,\qquad a=723883728. $$
+Znajdź $x\in {0,1,\dots,p-1}$ spełniające równość $$ g^x \equiv a \pmod p.">
+<meta itemprop="dateModified" content="2026-01-08T12:43:46+01:00" />
+<meta itemprop="wordCount" content="71"><meta itemprop="image" content="https://gregosiewicz.github.io/logo.png" />
+<meta itemprop="keywords" content="" /><meta property="og:title" content="Algorytmy kryptograficzne | Laboratorium 10" />
+<meta property="og:description" content="Zaimplementuj prostą wersję kryptosystemu ElGamala, umożliwiającą generowanie klucza, szyfrowanie i deszyfrowanie wiadomości.
+Dane: $$ \begin{aligned} p &amp;= 115792089237316195423570985008687907853269984665640564039457584007908834671663,\\ g &amp;= 2,\\ x &amp;= 987654321098765432109876543210987654321,\\ m &amp;= 123456789012345678901234567890,\\ k &amp;= 123456789012345678901234567890123456789. \end{aligned} $$
+Wyznacz klucz publiczny. Zaszyfruj wiadomość $m$ jako $(y_1,y_2)$. Odszufruj szyfrogram $(y_1,y_2)$. Zaimplementuj atak na problem logarytmu dyskretnego algorytmem Shanksa (baby-step giant-step).
+Dane: $$ p=2147483647,\qquad g=5,\qquad a=723883728. $$
+Znajdź $x\in {0,1,\dots,p-1}$ spełniające równość $$ g^x \equiv a \pmod p." />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://gregosiewicz.github.io/teaching/25-26zmaied/lab/lab-03/" /><meta property="og:image" content="https://gregosiewicz.github.io/logo.png" /><meta property="article:section" content="teaching" />
+<meta property="og:url" content="https://gregosiewicz.github.io/teaching/25-26ak/lab/lab-10/" /><meta property="og:image" content="https://gregosiewicz.github.io/logo.png" /><meta property="article:section" content="teaching" />
 
-<meta property="article:modified_time" content="2025-10-26T13:38:01+01:00" />
+<meta property="article:modified_time" content="2026-01-08T12:43:46+01:00" />
 
 <meta name="twitter:card" content="summary_large_image" />
-<meta name="twitter:image" content="https://gregosiewicz.github.io/logo.png" /><meta name="twitter:title" content="Zaawansowane metody analizy i eksploracji danych | I2N | semestr zimowy 2025/2026"/>
-<meta name="twitter:description" content="Laboratorium 3 Zaimplementuj algorytm DBSCAN i przedstaw graficznie obliczone klastry dla losowych zbiorów danych.
-Dobierz odpowiednie zbiory danych, aby zobrazować różnice między algorytmami k-means i DBSCAN.
-Dla zbiorów danych z zadania 3 oblicz (zaimplementuj) wskaźniki:
-indeks Calińskiego&ndash;Harabasza, indeks sylwetki, indeks Daviesa&ndash;Bouldina, indeks Dunna, indeks Randa. Dla klasycznego algorytmu k-means zmień sposób wybierania początkowych centroidów. Pierwszy wybierz losowo, a każdy następny wybierz z jeszcze niewybranych punktów z prawdopodobieństwem proporcjonalnym do kwadratu odległości między tym punktem a najbliższym centroidem."/>
+<meta name="twitter:image" content="https://gregosiewicz.github.io/logo.png" /><meta name="twitter:title" content="Algorytmy kryptograficzne | Laboratorium 10"/>
+<meta name="twitter:description" content="Zaimplementuj prostą wersję kryptosystemu ElGamala, umożliwiającą generowanie klucza, szyfrowanie i deszyfrowanie wiadomości.
+Dane: $$ \begin{aligned} p &amp;= 115792089237316195423570985008687907853269984665640564039457584007908834671663,\\ g &amp;= 2,\\ x &amp;= 987654321098765432109876543210987654321,\\ m &amp;= 123456789012345678901234567890,\\ k &amp;= 123456789012345678901234567890123456789. \end{aligned} $$
+Wyznacz klucz publiczny. Zaszyfruj wiadomość $m$ jako $(y_1,y_2)$. Odszufruj szyfrogram $(y_1,y_2)$. Zaimplementuj atak na problem logarytmu dyskretnego algorytmem Shanksa (baby-step giant-step).
+Dane: $$ p=2147483647,\qquad g=5,\qquad a=723883728. $$
+Znajdź $x\in {0,1,\dots,p-1}$ spełniające równość $$ g^x \equiv a \pmod p."/>
 <meta name="twitter:site" content="@xxxx"/>
 <meta name="application-name" content="Adam Gregosiewicz">
-<meta name="apple-mobile-web-app-title" content="Adam Gregosiewicz"><meta name="theme-color" data-light="#f8f8f8" data-dark="#252627" content="#f8f8f8"><meta name="msapplication-TileColor" content="#2376b7"><link rel="icon" href="/logo_white_circle.svg"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#2376b7"><link rel="canonical" href="https://gregosiewicz.github.io/teaching/25-26zmaied/lab/lab-03/" /><link rel="prev" href="https://gregosiewicz.github.io/teaching/25-26zmaied/lab/lab-04/" /><link rel="next" href="https://gregosiewicz.github.io/teaching/25-26zmaied/lab/lab-02/" /><link rel="stylesheet" href="/css/style.min.css">
+<meta name="apple-mobile-web-app-title" content="Adam Gregosiewicz"><meta name="theme-color" data-light="#f8f8f8" data-dark="#252627" content="#f8f8f8"><meta name="msapplication-TileColor" content="#2376b7"><link rel="icon" href="/logo_white_circle.svg"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#2376b7"><link rel="canonical" href="https://gregosiewicz.github.io/teaching/25-26ak/lab/lab-10/" /><link rel="prev" href="https://gregosiewicz.github.io/teaching/25-26ak/lab/lab-02/" /><link rel="next" href="https://gregosiewicz.github.io/teaching/25-26ak/lab/lab-01/" /><link rel="stylesheet" href="/css/style.min.css">
 
 
 <script type="application/ld+json">
   {
     "@context": "http://schema.org",
     "@type": "BlogPosting",
-    "headline": "Zaawansowane metody analizy i eksploracji danych | I2N | semestr zimowy 2025/2026",
+    "headline": "Algorytmy kryptograficzne | Laboratorium 10",
     "inLanguage": "en",
     "mainEntityOfPage": {
       "@type": "WebPage",
-      "@id": "https:\/\/gregosiewicz.github.io\/teaching\/25-26zmaied\/lab\/lab-03\/"
-    },"image": ["https:\/\/gregosiewicz.github.io\/images\/Apple-Devices-Preview.jpg"],"genre": "teaching","wordcount":  77 ,
-    "url": "https:\/\/gregosiewicz.github.io\/teaching\/25-26zmaied\/lab\/lab-03\/","dateModified": "2025-10-26T13:38:01+01:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
+      "@id": "https:\/\/gregosiewicz.github.io\/teaching\/25-26ak\/lab\/lab-10\/"
+    },"image": ["https:\/\/gregosiewicz.github.io\/images\/Apple-Devices-Preview.jpg"],"genre": "teaching","wordcount":  71 ,
+    "url": "https:\/\/gregosiewicz.github.io\/teaching\/25-26ak\/lab\/lab-10\/","dateModified": "2026-01-08T12:43:46+01:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
       "@type": "Organization",
       "name": "Adam Gregosiewicz","logo": {
           "@type": "ImageObject",
@@ -152,40 +156,42 @@ indeks Calińskiego&ndash;Harabasza, indeks sylwetki, indeks Daviesa&ndash;Bould
     </nav>
   </div>
 </header><main class="container" data-page-style="normal"><article class="page single special">
-    <div class="header"><h1 class="single-title animate__animated animate__pulse animate__faster">Zaawansowane metody analizy i eksploracji danych | I2N | semestr zimowy 2025/2026</h1></div><div
+    <div class="header"><h1 class="single-title animate__animated animate__pulse animate__faster">Algorytmy kryptograficzne | Laboratorium 10</h1></div><div
       class="content"
       id="content"
       
       
-    ><h2 id="laboratorium-3">Laboratorium 3</h2>
-<ol>
+    ><ol>
 <li>
-<p>Zaimplementuj algorytm <code>DBSCAN</code> i przedstaw graficznie obliczone
-klastry dla losowych zbiorów danych.</p>
-</li>
-<li>
-<p>Dobierz odpowiednie zbiory danych, aby zobrazować różnice między
-algorytmami <code>k-means</code> i <code>DBSCAN</code>.</p>
-</li>
-<li>
-<p>Dla zbiorów danych z zadania 3 oblicz (zaimplementuj) wskaźniki:</p>
+<p>Zaimplementuj prostą wersję kryptosystemu ElGamala, umożliwiającą
+generowanie klucza, szyfrowanie i deszyfrowanie wiadomości.</p>
+<p>Dane:
+$$
+\begin{aligned}
+p &amp;= 115792089237316195423570985008687907853269984665640564039457584007908834671663,\\
+g &amp;= 2,\\
+x &amp;= 987654321098765432109876543210987654321,\\
+m &amp;= 123456789012345678901234567890,\\
+k &amp;= 123456789012345678901234567890123456789.
+\end{aligned}
+$$</p>
 <ul>
-<li><a href="https://en.wikipedia.org/wiki/Calinski%E2%80%93Harabasz_index"target="_blank" rel="external nofollow noopener noreferrer">indeks
-Calińskiego&ndash;Harabasza</a>,</li>
-<li><a href="https://en.wikipedia.org/wiki/Silhouette_%28clustering%29"target="_blank" rel="external nofollow noopener noreferrer">indeks
-sylwetki</a>,</li>
-<li><a href="https://en.wikipedia.org/wiki/Davies%E2%80%93Bouldin_index"target="_blank" rel="external nofollow noopener noreferrer">indeks
-Daviesa&ndash;Bouldina</a>,</li>
-<li><a href="https://en.wikipedia.org/wiki/Dunn_index"target="_blank" rel="external nofollow noopener noreferrer">indeks Dunna</a>,</li>
-<li><a href="https://en.wikipedia.org/wiki/Rand_index"target="_blank" rel="external nofollow noopener noreferrer">indeks Randa</a>.</li>
+<li>Wyznacz klucz publiczny.</li>
+<li>Zaszyfruj wiadomość $m$ jako $(y_1,y_2)$.</li>
+<li>Odszufruj szyfrogram $(y_1,y_2)$.</li>
 </ul>
 </li>
 <li>
-<p>Dla klasycznego algorytmu <code>k-means</code> zmień sposób wybierania
-początkowych centroidów. Pierwszy wybierz losowo, a każdy następny
-wybierz z jeszcze niewybranych punktów z prawdopodobieństwem
-proporcjonalnym do kwadratu odległości między tym punktem a
-najbliższym centroidem.</p>
+<p>Zaimplementuj atak na problem logarytmu dyskretnego algorytmem
+Shanksa (baby-step giant-step).</p>
+<p>Dane:
+$$
+p=2147483647,\qquad g=5,\qquad a=723883728.
+$$</p>
+<p>Znajdź $x\in {0,1,\dots,p-1}$ spełniające równość
+$$
+g^x \equiv a \pmod p.
+$$</p>
 </li>
 </ol>
 </div></article></main><footer class="footer">
