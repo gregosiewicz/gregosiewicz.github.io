@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html itemscope itemtype="http://schema.org/WebPage" lang="en">
+  <head>
+    
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+    <meta name="robots" content="noodp" />
+    <title>Zaawansowane metody analizy i eksploracji danych | I2S | semestr letni 2025/2026 - Adam Gregosiewicz</title><meta name="author" content="Adam Gregosiewicz">
+<meta name="author-link" content="https://gregosiewicz.github.io">
+<meta name="description" content="Laboratorium 1 &mdash; Wprowadzenie do NumPy i pandas. 1. COVID-19 Wykorzystując dane Our World in Data (OWID), przeprowadź analizę zachorowań na COVID-19.
+Wczytaj z pliku dane dotyczące roku 2021. Wykorzystaj kolumny iso_code, location, date, new_cases, population. Przygotuj DataFrame z następującymi kolumnami dotyczącymi każdego kraju osobno:
+peak_incidence_7d_1M &ndash; Maksymalna wartość (pik) średniej ruchomej liczby nowych przypadków (new_cases) z 7 dni na 1 milion mieszkańców (population). Jeżeli w oknie 7 dni występuje chociaż jeden brak danych, to przyjmujemy, że średnia ma wartość NaN." /><meta itemprop="name" content="Zaawansowane metody analizy i eksploracji danych | I2S | semestr letni 2025/2026">
+<meta itemprop="description" content="Laboratorium 1 &mdash; Wprowadzenie do NumPy i pandas. 1. COVID-19 Wykorzystując dane Our World in Data (OWID), przeprowadź analizę zachorowań na COVID-19.
+Wczytaj z pliku dane dotyczące roku 2021. Wykorzystaj kolumny iso_code, location, date, new_cases, population. Przygotuj DataFrame z następującymi kolumnami dotyczącymi każdego kraju osobno:
+peak_incidence_7d_1M &ndash; Maksymalna wartość (pik) średniej ruchomej liczby nowych przypadków (new_cases) z 7 dni na 1 milion mieszkańców (population). Jeżeli w oknie 7 dni występuje chociaż jeden brak danych, to przyjmujemy, że średnia ma wartość NaN.">
+<meta itemprop="dateModified" content="2026-02-23T08:39:14+01:00" />
+<meta itemprop="wordCount" content="382"><meta itemprop="image" content="https://gregosiewicz.github.io/logo.png" />
+<meta itemprop="keywords" content="" /><meta property="og:title" content="Zaawansowane metody analizy i eksploracji danych | I2S | semestr letni 2025/2026" />
+<meta property="og:description" content="Laboratorium 1 &mdash; Wprowadzenie do NumPy i pandas. 1. COVID-19 Wykorzystując dane Our World in Data (OWID), przeprowadź analizę zachorowań na COVID-19.
+Wczytaj z pliku dane dotyczące roku 2021. Wykorzystaj kolumny iso_code, location, date, new_cases, population. Przygotuj DataFrame z następującymi kolumnami dotyczącymi każdego kraju osobno:
+peak_incidence_7d_1M &ndash; Maksymalna wartość (pik) średniej ruchomej liczby nowych przypadków (new_cases) z 7 dni na 1 milion mieszkańców (population). Jeżeli w oknie 7 dni występuje chociaż jeden brak danych, to przyjmujemy, że średnia ma wartość NaN." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://gregosiewicz.github.io/teaching/25-26zmaied-s/lab/lab-01/" /><meta property="og:image" content="https://gregosiewicz.github.io/logo.png" /><meta property="article:section" content="teaching" />
+
+<meta property="article:modified_time" content="2026-02-23T08:39:14+01:00" />
+
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:image" content="https://gregosiewicz.github.io/logo.png" /><meta name="twitter:title" content="Zaawansowane metody analizy i eksploracji danych | I2S | semestr letni 2025/2026"/>
+<meta name="twitter:description" content="Laboratorium 1 &mdash; Wprowadzenie do NumPy i pandas. 1. COVID-19 Wykorzystując dane Our World in Data (OWID), przeprowadź analizę zachorowań na COVID-19.
+Wczytaj z pliku dane dotyczące roku 2021. Wykorzystaj kolumny iso_code, location, date, new_cases, population. Przygotuj DataFrame z następującymi kolumnami dotyczącymi każdego kraju osobno:
+peak_incidence_7d_1M &ndash; Maksymalna wartość (pik) średniej ruchomej liczby nowych przypadków (new_cases) z 7 dni na 1 milion mieszkańców (population). Jeżeli w oknie 7 dni występuje chociaż jeden brak danych, to przyjmujemy, że średnia ma wartość NaN."/>
+<meta name="twitter:site" content="@xxxx"/>
+<meta name="application-name" content="Adam Gregosiewicz">
+<meta name="apple-mobile-web-app-title" content="Adam Gregosiewicz"><meta name="theme-color" data-light="#f8f8f8" data-dark="#252627" content="#f8f8f8"><meta name="msapplication-TileColor" content="#2376b7"><link rel="icon" href="/logo_white_circle.svg"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#2376b7"><link rel="canonical" href="https://gregosiewicz.github.io/teaching/25-26zmaied-s/lab/lab-01/" /><link rel="stylesheet" href="/css/style.min.css">
+
+
+<script type="application/ld+json">
+  {
+    "@context": "http://schema.org",
+    "@type": "BlogPosting",
+    "headline": "Zaawansowane metody analizy i eksploracji danych | I2S | semestr letni 2025/2026",
+    "inLanguage": "en",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https:\/\/gregosiewicz.github.io\/teaching\/25-26zmaied-s\/lab\/lab-01\/"
+    },"image": ["https:\/\/gregosiewicz.github.io\/images\/Apple-Devices-Preview.jpg"],"genre": "teaching","wordcount":  382 ,
+    "url": "https:\/\/gregosiewicz.github.io\/teaching\/25-26zmaied-s\/lab\/lab-01\/","dateModified": "2026-02-23T08:39:14+01:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
+      "@type": "Organization",
+      "name": "Adam Gregosiewicz","logo": {
+          "@type": "ImageObject",
+          "url": "https:\/\/gregosiewicz.github.io\/images\/ag.jpg",
+          "width":  400 ,
+          "height":  400 
+        }},"author": {
+        "@type": "Person",
+        "name": "Adam Gregosiewicz"
+      },"description": ""
+  }
+  </script></head>
+  <body data-header-desktop="sticky" data-header-mobile="normal"><script>(window.localStorage?.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('auto' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'auto' === 'dark')) && document.body.setAttribute('data-theme', 'dark');</script><div class="wrapper"><header class="desktop animate__faster" id="header-desktop">
+  <div class="header-wrapper">
+    <div class="header-title">
+      <a href="/" title="Adam Gregosiewicz"><img
+    class="lazyload logo"
+    src="/svg/loading.min.svg"
+    data-src="/logo.svg"
+    data-srcset="/logo.svg, /logo.svg 1.5x, /logo.svg 2x"
+    data-sizes="auto"
+    alt="Adam Gregosiewicz"
+    title="Adam Gregosiewicz"/><span class="header-title-text">Adam Gregosiewicz</span></a><span class="header-subtitle"></span></div>
+    <nav>
+      <ul class="menu"><li class="menu-item">
+              <a
+                class="menu-link"
+                href="/"
+                
+                
+              >Home</a></li><li class="menu-item">
+              <a
+                class="menu-link"
+                href="/publications/"
+                
+                
+              >Publications</a></li><li class="menu-item">
+              <a
+                class="menu-link"
+                href="/talks/"
+                
+                
+              >Talks</a></li><li class="menu-item">
+              <a
+                class="menu-link"
+                href="/teaching/"
+                
+                
+              >Teaching</a></li><li class="menu-item delimiter"></li><li class="menu-item theme-switch" title="Switch Theme"><i data-svg-src="/switch.svg" aria-hidden="true"></i>
+        </li>
+      </ul>
+    </nav>
+  </div>
+</header><header class="mobile animate__faster" id="header-mobile">
+  <div class="header-container">
+    <div class="header-wrapper">
+      <div class="header-title">
+        <a href="/" title="Adam Gregosiewicz"><img
+    class="lazyload logo"
+    src="/svg/loading.min.svg"
+    data-src="/logo.svg"
+    data-srcset="/logo.svg, /logo.svg 1.5x, /logo.svg 2x"
+    data-sizes="auto"
+    alt="/logo.svg"
+    title="/logo.svg"/><span class="header-title-text">Adam Gregosiewicz</span></a><span class="header-subtitle"></span></div>
+      <div class="menu-toggle" id="menu-toggle-mobile">
+        <span></span><span></span><span></span>
+      </div>
+    </div>
+    <nav>
+      <ul class="menu" id="menu-mobile"><li
+              class="menu-item"
+            ><a
+                  class="menu-link"
+                  href="/"
+                  
+                  
+                >Home</a></li><li
+              class="menu-item"
+            ><a
+                  class="menu-link"
+                  href="/publications/"
+                  
+                  
+                >Publications</a></li><li
+              class="menu-item"
+            ><a
+                  class="menu-link"
+                  href="/talks/"
+                  
+                  
+                >Talks</a></li><li
+              class="menu-item"
+            ><a
+                  class="menu-link"
+                  href="/teaching/"
+                  
+                  
+                >Teaching</a></li><li class="menu-item theme-switch" title="Switch Theme"><i data-svg-src="/switch.svg" aria-hidden="true"></i>
+        </li></ul>
+    </nav>
+  </div>
+</header><main class="container" data-page-style="normal"><article class="page single special">
+    <div class="header"><h1 class="single-title animate__animated animate__pulse animate__faster">Zaawansowane metody analizy i eksploracji danych | I2S | semestr letni 2025/2026</h1></div><div
+      class="content"
+      id="content"
+      
+      
+    ><h2 id="laboratorium-1-----wprowadzenie-do-numpyhttpsnumpyorgdoc-i-pandashttpspandaspydataorgdocs">Laboratorium 1 &mdash; Wprowadzenie do <a href="https://numpy.org/doc/"target="_blank" rel="external nofollow noopener noreferrer">NumPy</a> i <a href="https://pandas.pydata.org/docs/"target="_blank" rel="external nofollow noopener noreferrer">pandas</a>.</h2>
+<h3 id="1-covid-19">1. COVID-19</h3>
+<p>Wykorzystując dane <a href="https://raw.githubusercontent.com/owid/covid-19-data/master/public/data/owid-covid-data.csv"target="_blank" rel="external nofollow noopener noreferrer">Our World in Data
+(OWID)</a>,
+przeprowadź analizę zachorowań na COVID-19.</p>
+<p>Wczytaj z pliku dane dotyczące roku 2021. Wykorzystaj kolumny
+<code>iso_code</code>, <code>location</code>, <code>date</code>, <code>new_cases</code>, <code>population</code>. Przygotuj
+DataFrame z następującymi kolumnami dotyczącymi każdego kraju osobno:</p>
+<ul>
+<li><code>peak_incidence_7d_1M</code> &ndash; Maksymalna wartość (pik) średniej ruchomej
+liczby nowych przypadków (<code>new_cases</code>) z 7 dni na 1 milion
+mieszkańców (<code>population</code>). Jeżeli w oknie 7 dni występuje chociaż
+jeden brak danych, to przyjmujemy, że średnia ma wartość <code>NaN</code>.</li>
+<li><code>peak_date</code> &ndash; Data wystąpienia piku (jeśli pik występuje w wielu
+dniach, wybierz najwcześniejszy).</li>
+<li><code>median_incidence_7d_1M</code> &ndash; Mediana 7-dniowej zachorowalności
+(ignorujemy braki).</li>
+<li><code>sharpness</code> &ndash; Ostrość fali zachorowań, to znaczy
+<code>peak_incidence_7d_1M</code> / <code>median_incidence_7d_1M</code>.</li>
+</ul>
+<p>Następnie wypisz:</p>
+<ul>
+<li>top 15 krajów z największym <code>peak_incidence_7d_1M</code> posortowanych
+malejąco,</li>
+<li>top 10 krajów z największym <code>sharpness</code> posortowanych malejąco.</li>
+</ul>
+<h3 id="2-ruch-lotniczy">2. Ruch lotniczy</h3>
+<p>Wykorzystując dane z biblioteki <code>vega_datasets</code>, przeprowadź analizę
+ruchu lotniczego w USA.</p>
+<p>Wczytaj dane dotyczące lotnisk i tras:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">vega_datasets</span> <span class="kn">import</span> <span class="n">data</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">airports</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">airports</span><span class="p">()</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="n">routes</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">flights_airport</span><span class="p">()</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Utwórz DataFrame będący połączeniem <code>routes</code> i <code>airports</code> z kolumnami:</p>
+<ul>
+<li><code>origin</code> &ndash; identyfikator lotniska początkowego,</li>
+<li><code>origin_name</code> &ndash; nazwa lotniska początkowego,</li>
+<li><code>origin_city</code> &ndash; miasto lotniska początkowego,</li>
+<li><code>origin_lat</code> &ndash; szerokość geograficzna lotniska początkowego,</li>
+<li><code>origin_lon</code> &ndash; długość geograficzna lotniska początkowego,</li>
+<li><code>destination</code> &ndash; j.w. dla lotniska docelowego,</li>
+<li><code>destination_name</code>,</li>
+<li><code>destination_city</code>,</li>
+<li><code>destination_lat</code>,</li>
+<li><code>destination_lon</code>,</li>
+<li><code>count</code> &ndash; liczba lotów na danej trasie,</li>
+<li><code>distance_km</code> &ndash; długość trasy (wykorzystaj wzór na <a href="https://en.wikipedia.org/wiki/Haversine_formula"target="_blank" rel="external nofollow noopener noreferrer">odległość po
+powierzchni kuli</a>),</li>
+<li><code>total_km</code> &ndash; łączna liczba kilometrów pokonanych przez samoloty na
+tej trasie.</li>
+</ul>
+<p>Następnie:</p>
+<ul>
+<li>do ramki <code>airports</code> dodaj kolumnę <code>total_count</code> będącą łączną liczbą
+lotów wychodzących dla poszczególnych lotnisk,</li>
+<li>wypisz top 10 lotnisk względem <code>total_count</code> posortowaną malejąco,</li>
+<li>wypisz top 10 połączeń z największym <code>total_km</code> posortowaną malejąco,</li>
+<li>wypisz top 10 lotnisk startowych (<code>origin</code>) o największym udziale
+lotów krótkodystansowych (co najwyżej 500 km) w całym ruchu
+wychodzącym, rozpatrując tylko lotniska, dla których <code>total_count</code>
+jest większy od 80 percentyla rozkładu <code>total_count</code> dla wszystkich
+lotnisk startowych.</li>
+</ul>
+<h3 id="3-igrzyska">3. Igrzyska</h3>
+<p>Wykorzystując
+<a href="https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2021/2021-07-27/olympics.csv"target="_blank" rel="external nofollow noopener noreferrer">dane</a>
+o igrzyskach olimpijskich, znajdź kraje zdobywające więcej medali niż
+wynikałoby z liczby reprezentantów.</p>
+<p>Ogranicz dane do igrzysk letnich w latach 2000&ndash;2016. Wykorzystaj
+kolumny <code>id</code>, <code>noc</code>, <code>year</code>, <code>season</code>, <code>sport</code>, <code>event</code>, <code>medal</code>.</p>
+<p>Zapisz w ramkach danych:</p>
+<ul>
+<li>liczbę unikalnych zawodników (<code>id</code>) kraju (<code>noc</code>) w danej edycji
+igrzysk (para (<code>year</code>, <code>season</code>)) i sporcie <code>sport</code>,</li>
+<li>liczbę medali liczonych jako unikalne zdarzenia medalowe w danej
+edycji i sporcie, tj. liczbę unikalnych krotek (<code>year</code>, <code>season</code>,
+<code>sport</code>, <code>event</code>, <code>medal</code>, <code>noc</code>).</li>
+</ul>
+</div></article></main><footer class="footer">
+    <div class="footer-container"><div class="footer-line powered">Powered by <a href="https://gohugo.io/" target="_blank" rel="external nofollow noopener noreferrer" title="Hugo 0.123.7">Hugo</a> | Theme - <a href="https://github.com/hugo-fixit/FixIt" target="_blank" rel="external" title="FixIt v0.2.17-RC">FixIt</a>
+        </div><div class="footer-line copyright" itemscope itemtype="http://schema.org/CreativeWork"><i class="fa-regular fa-copyright fa-fw" aria-hidden="true"></i>
+            <span itemprop="copyrightYear">2010-2026</span><span class="author" itemprop="copyrightHolder">
+              <a href="https://gregosiewicz.github.io"target="_blank" rel="external nofollow noopener noreferrer">Adam Gregosiewicz</a></span><span class="license footer-divider"><a rel="license external nofollow noopener noreferrer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span></div><div class="footer-line statistics"></div></div>
+  </footer></div><div class="widgets"><div id="mask"></div><div class="reading-progress-bar" style="left: 0;top: 0;--bg-progress: #000;--bg-progress-dark: #fff;"></div><noscript>
+    <div class="noscript-warning">Theme FixIt works best with JavaScript enabled.</div>
+  </noscript>
+</div><link rel="stylesheet" href="/lib/katex/katex.min.css"><script src="/lib/lazysizes/lazysizes.min.js" async defer></script><script src="/lib/katex/katex.min.js" defer></script><script src="/lib/katex/auto-render.min.js" defer></script><script src="/lib/katex/copy-tex.min.js" defer></script><script src="/lib/katex/mhchem.min.js" defer></script><script>window.config={"autoBookmark":true,"code":{"copyTitle":"Copy to clipboard","maxShownLines":10},"comment":{"enable":false},"math":{"delimiters":[{"display":true,"left":"$$","right":"$$"},{"display":true,"left":"\\[","right":"\\]"},{"display":true,"left":"\\begin{equation}","right":"\\end{equation}"},{"display":true,"left":"\\begin{equation*}","right":"\\end{equation*}"},{"display":true,"left":"\\begin{align}","right":"\\end{align}"},{"display":true,"left":"\\begin{align*}","right":"\\end{align*}"},{"display":true,"left":"\\begin{alignat}","right":"\\end{alignat}"},{"display":true,"left":"\\begin{alignat*}","right":"\\end{alignat*}"},{"display":true,"left":"\\begin{gather}","right":"\\end{gather}"},{"display":true,"left":"\\begin{CD}","right":"\\end{CD}"},{"display":false,"left":"$","right":"$"},{"display":false,"left":"\\(","right":"\\)"}],"strict":false}};</script><script src="/js/theme.min.js" defer></script><script>
+      window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js', new Date());
+      gtag('config', 'G-D6NS0QSV1X', { 'anonymize_ip': true });
+    </script><script src="https://www.googletagmanager.com/gtag/js?id=G-D6NS0QSV1X" async></script></body>
+</html>
