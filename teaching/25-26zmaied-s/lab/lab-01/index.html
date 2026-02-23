@@ -13,8 +13,8 @@ peak_incidence_7d_1M &ndash; Maksymalna wartość (pik) średniej ruchomej liczb
 <meta itemprop="description" content="Laboratorium 1 &mdash; Wprowadzenie do NumPy i pandas. 1. COVID-19 Wykorzystując dane Our World in Data (OWID), przeprowadź analizę zachorowań na COVID-19.
 Wczytaj z pliku dane dotyczące roku 2021. Wykorzystaj kolumny iso_code, location, date, new_cases, population. Przygotuj DataFrame z następującymi kolumnami dotyczącymi każdego kraju osobno:
 peak_incidence_7d_1M &ndash; Maksymalna wartość (pik) średniej ruchomej liczby nowych przypadków (new_cases) z 7 dni na 1 milion mieszkańców (population). Jeżeli w oknie 7 dni występuje chociaż jeden brak danych, to przyjmujemy, że średnia ma wartość NaN.">
-<meta itemprop="dateModified" content="2026-02-23T08:39:14+01:00" />
-<meta itemprop="wordCount" content="382"><meta itemprop="image" content="https://gregosiewicz.github.io/logo.png" />
+<meta itemprop="dateModified" content="2026-02-23T10:12:58+01:00" />
+<meta itemprop="wordCount" content="541"><meta itemprop="image" content="https://gregosiewicz.github.io/logo.png" />
 <meta itemprop="keywords" content="" /><meta property="og:title" content="Zaawansowane metody analizy i eksploracji danych | I2S | semestr letni 2025/2026" />
 <meta property="og:description" content="Laboratorium 1 &mdash; Wprowadzenie do NumPy i pandas. 1. COVID-19 Wykorzystując dane Our World in Data (OWID), przeprowadź analizę zachorowań na COVID-19.
 Wczytaj z pliku dane dotyczące roku 2021. Wykorzystaj kolumny iso_code, location, date, new_cases, population. Przygotuj DataFrame z następującymi kolumnami dotyczącymi każdego kraju osobno:
@@ -22,7 +22,7 @@ peak_incidence_7d_1M &ndash; Maksymalna wartość (pik) średniej ruchomej liczb
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://gregosiewicz.github.io/teaching/25-26zmaied-s/lab/lab-01/" /><meta property="og:image" content="https://gregosiewicz.github.io/logo.png" /><meta property="article:section" content="teaching" />
 
-<meta property="article:modified_time" content="2026-02-23T08:39:14+01:00" />
+<meta property="article:modified_time" content="2026-02-23T10:12:58+01:00" />
 
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:image" content="https://gregosiewicz.github.io/logo.png" /><meta name="twitter:title" content="Zaawansowane metody analizy i eksploracji danych | I2S | semestr letni 2025/2026"/>
@@ -43,8 +43,8 @@ peak_incidence_7d_1M &ndash; Maksymalna wartość (pik) średniej ruchomej liczb
     "mainEntityOfPage": {
       "@type": "WebPage",
       "@id": "https:\/\/gregosiewicz.github.io\/teaching\/25-26zmaied-s\/lab\/lab-01\/"
-    },"image": ["https:\/\/gregosiewicz.github.io\/images\/Apple-Devices-Preview.jpg"],"genre": "teaching","wordcount":  382 ,
-    "url": "https:\/\/gregosiewicz.github.io\/teaching\/25-26zmaied-s\/lab\/lab-01\/","dateModified": "2026-02-23T08:39:14+01:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
+    },"image": ["https:\/\/gregosiewicz.github.io\/images\/Apple-Devices-Preview.jpg"],"genre": "teaching","wordcount":  541 ,
+    "url": "https:\/\/gregosiewicz.github.io\/teaching\/25-26zmaied-s\/lab\/lab-01\/","dateModified": "2026-02-23T10:12:58+01:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
       "@type": "Organization",
       "name": "Adam Gregosiewicz","logo": {
           "@type": "ImageObject",
@@ -231,16 +231,40 @@ lotnisk startowych.</li>
 <p>Wykorzystując
 <a href="https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2021/2021-07-27/olympics.csv"target="_blank" rel="external nofollow noopener noreferrer">dane</a>
 o igrzyskach olimpijskich, znajdź kraje zdobywające więcej medali niż
-wynikałoby z liczby reprezentantów.</p>
+wynikałoby to z liczby reprezentantów.</p>
 <p>Ogranicz dane do igrzysk letnich w latach 2000&ndash;2016. Wykorzystaj
 kolumny <code>id</code>, <code>noc</code>, <code>year</code>, <code>season</code>, <code>sport</code>, <code>event</code>, <code>medal</code>.</p>
-<p>Zapisz w ramkach danych:</p>
+<p>Dla każdej edycji igrzysk i sportu policz globalną ,,stopę medalową&rsquo;':</p>
 <ul>
-<li>liczbę unikalnych zawodników (<code>id</code>) kraju (<code>noc</code>) w danej edycji
-igrzysk (para (<code>year</code>, <code>season</code>)) i sporcie <code>sport</code>,</li>
-<li>liczbę medali liczonych jako unikalne zdarzenia medalowe w danej
-edycji i sporcie, tj. liczbę unikalnych krotek (<code>year</code>, <code>season</code>,
-<code>sport</code>, <code>event</code>, <code>medal</code>, <code>noc</code>).</li>
+<li><code>rate_sport</code>, równą <code>total_medals_event_sport / total_athletes_sport</code>, gdzie <code>total_*</code> to odpowiednio suma medali i
+liczba wszystkich sportowców w danej edycji i sporcie.</li>
+</ul>
+<p>Dla każdego kraju w danej edycji policz:</p>
+<ul>
+<li><code>athletes</code> &ndash; liczba unikalnych zawodników,</li>
+<li><code>athletes_sport</code> &ndash; liczba unikalnych zawodników w danym sporcie,</li>
+<li><code>medals_event</code> &ndash; liczba medali, tj. liczba unikalnych krotek
+(<code>year</code>, <code>season</code>, <code>medal</code>, <code>noc</code>),</li>
+<li><code>medals_event_sport</code> &ndash; liczba medali w danym sporcie,</li>
+<li><code>expected_medals</code> &ndash; oczekiwana liczba medali po uwzględnieniu stopy
+medalowe, tj. <code>sum_sport(rate_sport * athletes_sport)</code></li>
+<li><code>ratio</code> &ndash; stosunek liczby zdobytych medali do oczekiwanej liczby
+medali (jeśli <code>expected_medals &lt;= 0</code>, to przypisz <code>NaN</code>),</li>
+<li><code>residual</code> &ndash; różnica między zdobytymi a oczekiwanymi medalami.</li>
+</ul>
+<p>Wynikiem ma być DataFrame z kolumnami: <code>year</code>, <code>season</code>, <code>noc</code>, <code>athletes</code>, <code>medals_event</code>, <code>expected_medals</code>, <code>ratio</code>, <code>residual</code>.</p>
+<p>Wypisz:</p>
+<ul>
+<li>dla każdej edycji igrzysk: top 5 krajów wg <code>ratio</code> (malejąco),
+rozpatrując tylko kraje z <code>athletes &gt;= 50</code> oraz <code>expected_medals &gt;= 1</code>,</li>
+<li>top 10 najbardziej konsekwentnych liderów <code>ratio</code>: dla każdego <code>noc</code>
+policz medianę <code>ratio</code> po edycjach (wymagaj udziału we wszystkich 5
+edycjach),</li>
+<li>dla 10 najbardziej konsekwentnych liderów <code>ratio</code> ich dominującą
+dyscyplinę: udział medali z jednego najbardziej medalowego sportu,
+czyli stosunek liczby wszystkich medali w sporcie o największej
+liczbie medali do liczby wszystkich medali (medale liczymy po
+wszystkich rozważanych edycjach).</li>
 </ul>
 </div></article></main><footer class="footer">
     <div class="footer-container"><div class="footer-line powered">Powered by <a href="https://gohugo.io/" target="_blank" rel="external nofollow noopener noreferrer" title="Hugo 0.123.7">Hugo</a> | Theme - <a href="https://github.com/hugo-fixit/FixIt" target="_blank" rel="external" title="FixIt v0.2.17-RC">FixIt</a>
